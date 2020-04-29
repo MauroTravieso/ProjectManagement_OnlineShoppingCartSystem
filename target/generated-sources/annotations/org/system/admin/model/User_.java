@@ -17,6 +17,7 @@ public abstract class User_ {
 	public static volatile SingularAttribute<User, String> password;
 	public static volatile SingularAttribute<User, String> phoneNumber;
 	public static volatile SingularAttribute<User, LocalDate> statusChangedDate;
+	public static volatile SingularAttribute<User, Double> quota;
 	public static volatile ListAttribute<User, Role> roles;
 	public static volatile SingularAttribute<User, String> name;
 	public static volatile SingularAttribute<User, String> email;
@@ -28,6 +29,7 @@ public abstract class User_ {
 	public static final String PASSWORD = "password";
 	public static final String PHONE_NUMBER = "phoneNumber";
 	public static final String STATUS_CHANGED_DATE = "statusChangedDate";
+	public static final String QUOTA = "quota";
 	public static final String ROLES = "roles";
 	public static final String NAME = "name";
 	public static final String EMAIL = "email";

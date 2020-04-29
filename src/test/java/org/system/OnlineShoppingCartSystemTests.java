@@ -36,7 +36,7 @@ public class OnlineShoppingCartSystemTests {
 			rolesUser.add(new Role("USER"));
 			LocalDate accountCreatedDate = LocalDate.now();
 
-			User newUser = new User("testUser@mail.com", "testUser", "testUser", "0123456789",accountCreatedDate,"123456", rolesUser, UserStatus.PENDING);
+			User newUser = new User("testUser@mail.com", "testUser", "testUser", "0123456789",accountCreatedDate,"123456", rolesUser, UserStatus.PENDING,0.0);
 			userService.createUser(newUser);
 		}
 		{
@@ -44,7 +44,7 @@ public class OnlineShoppingCartSystemTests {
 			rolesAdmin.add(new Role("ADMIN"));
 			LocalDate accountCreatedDate = LocalDate.now();
 
-			User newUser = new User("testAdmin@mail.com", "testAdmin", "testAdmin", "0123456789", accountCreatedDate,"123456", rolesAdmin, UserStatus.ACTIVE);
+			User newUser = new User("testAdmin@mail.com", "testAdmin", "testAdmin", "0123456789", accountCreatedDate,"123456", rolesAdmin, UserStatus.ACTIVE,0.0);
 			userService.createUser(newUser);
 		}
 

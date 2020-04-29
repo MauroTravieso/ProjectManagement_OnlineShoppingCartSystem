@@ -43,6 +43,7 @@ public class User {
 
     private UserStatus status;
 
+    private double quota;
 
     @OneToMany(mappedBy="user", cascade=CascadeType.ALL)
     private List<Task> tasks;
@@ -68,7 +69,7 @@ public class User {
     public User() {
     }
 
-    public User(String email, String name, String lastName, String phoneNumber, LocalDate accountCreatedDate, String password, List<Role> role, UserStatus status) {
+    public User(String email, String name, String lastName, String phoneNumber, LocalDate accountCreatedDate, String password, List<Role> role, UserStatus status, Double quota) {
         this.email = email;
         this.name = name;
         this.lastName = lastName;
@@ -77,6 +78,7 @@ public class User {
         this.password = password;
         this.roles = role;
         this.status = status;
+        this.quota = quota;
     }
 
 

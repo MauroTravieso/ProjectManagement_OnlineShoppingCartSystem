@@ -34,6 +34,11 @@ public class UserService {
         LocalDate accountCreatedDate = LocalDate.now();
         user.setAccountCreatedDate(accountCreatedDate);
         user.setStatus(UserStatus.PENDING);
+        Role role = user.getRoles().get(0);
+        if (role.getName()=="VENDOR")
+            user.setQuota(5000.0);
+        else
+            user.setQuota(0.0);
         userRepository.save(user);
     }
 
