@@ -37,6 +37,20 @@
                     <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                 </div>
 
+                <!-- lastname -->
+                <div class="form-group">
+                    <label for="lastName" class="form-control-label">Lastname</label>
+                    <input type="text" class="form-control" th:field="*{lastName}" id="lastName" />
+                    <div class="text text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+                </div>
+
+                <!-- phoneNumber -->
+                <div class="form-group">
+                    <label for="phoneNumber" class="form-control-label">Phone Number</label>
+                    <input type="text" class="form-control" th:field="*{phoneNumber}" id="phoneNumber" />
+                    <div class="text text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
+                </div>
+
 <!--                <div class="form-group">-->
 <!--                    <select class="custom-select">-->
 <!--                        <option selected="">Open this select menu</option>-->

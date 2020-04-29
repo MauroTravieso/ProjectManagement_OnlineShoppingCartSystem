@@ -10,6 +10,7 @@ import org.system.admin.service.UserService;
 import org.system.role.model.Role;
 import org.system.role.service.RoleService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class OnlineShoppingCartSystemApplication implements CommandLineRunner {
 	@Override
 	public void run(String...args) throws Exception {
 		List<Role> roles = new ArrayList<>();
-		roles.add(new Role("ADMIN"));
+		//roles.add(new Role("ADMIN"));
 		roles.add(new Role("VENDOR"));
 		roles.add(new Role("EMPLOYEE"));
 		roles.add(new Role("CUSTOMER"));
@@ -51,7 +52,9 @@ public class OnlineShoppingCartSystemApplication implements CommandLineRunner {
 
 		UserStatus status = UserStatus.ACTIVE;
 
-		User newAdmin = new User("admin@mail.com", "Admin", "admin", rolesAdmin, status);
+		LocalDate accountCreatedDate = LocalDate.now();
+
+		User newAdmin = new User("admin@mail.com", "Admin", "Admin", "0123456789", accountCreatedDate,"admin",  rolesAdmin, status);
 		userService.createAdmin(newAdmin);
 	}
 }

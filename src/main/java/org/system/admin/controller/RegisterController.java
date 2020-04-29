@@ -56,7 +56,6 @@ public class RegisterController {
         if (userService.isUserPresent(user.getEmail())){
 
             model.addAttribute("exist", true);
-            System.out.println("0");
             return "views/registerForm";
         }
 

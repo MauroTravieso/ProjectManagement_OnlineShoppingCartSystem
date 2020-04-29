@@ -3,11 +3,13 @@ package org.system.admin.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.system.admin.model.UserStatus;
 import org.system.role.model.Role;
 import org.system.admin.model.User;
 import org.system.admin.repository.UserRepository;
 import org.system.role.repository.RoleRepository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,17 +20,20 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-//    private RoleRepository roleRepository;
+    @Autowired
+    private RoleRepository roleRepository;
 
     public void createUser(User user) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
 //        Role userRole = new Role("USER");
-//        //Role userRole = roleRepository.findById(user.getRoles().get(0));
+//        //Role userRole = roleRepository.findById(user.getRoleName());
 //        List<Role> roles = new ArrayList<>();
 //        roles.add(userRole);
 //        user.setRoles(roles);
+        LocalDate accountCreatedDate = LocalDate.now();
+        user.setAccountCreatedDate(accountCreatedDate);
+        user.setStatus(UserStatus.PENDING);
         userRepository.save(user);
     }
 

@@ -16,6 +16,7 @@ import org.system.admin.service.UserService;
 import org.system.task.model.Task;
 import org.system.admin.model.User;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,15 +34,17 @@ public class OnlineShoppingCartSystemTests {
 		{
 			List<Role> rolesUser = new ArrayList<>();
 			rolesUser.add(new Role("USER"));
+			LocalDate accountCreatedDate = LocalDate.now();
 
-			User newUser = new User("testUser@mail.com", "testUser", "123456", rolesUser, UserStatus.PENDING);
+			User newUser = new User("testUser@mail.com", "testUser", "testUser", "0123456789",accountCreatedDate,"123456", rolesUser, UserStatus.PENDING);
 			userService.createUser(newUser);
 		}
 		{
 			List<Role> rolesAdmin = new ArrayList<>();
 			rolesAdmin.add(new Role("ADMIN"));
+			LocalDate accountCreatedDate = LocalDate.now();
 
-			User newUser = new User("testAdmin@mail.com", "testAdmin", "123456", rolesAdmin, UserStatus.ACTIVE);
+			User newUser = new User("testAdmin@mail.com", "testAdmin", "testAdmin", "0123456789", accountCreatedDate,"123456", rolesAdmin, UserStatus.ACTIVE);
 			userService.createUser(newUser);
 		}
 
