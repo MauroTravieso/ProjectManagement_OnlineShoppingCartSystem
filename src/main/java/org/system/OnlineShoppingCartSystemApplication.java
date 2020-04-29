@@ -43,7 +43,7 @@ public class OnlineShoppingCartSystemApplication implements CommandLineRunner {
 		roles.add(new Role("VENDOR"));
 		roles.add(new Role("EMPLOYEE"));
 		roles.add(new Role("CUSTOMER"));
-		roles.add(new Role("END-USER"));
+		roles.add(new Role("USER"));
 
 		roleService.save(roles);
 

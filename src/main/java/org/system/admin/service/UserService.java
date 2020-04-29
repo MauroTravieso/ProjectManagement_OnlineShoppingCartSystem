@@ -31,14 +31,25 @@ public class UserService {
 //        List<Role> roles = new ArrayList<>();
 //        roles.add(userRole);
 //        user.setRoles(roles);
+
+        // Account creation date
         LocalDate accountCreatedDate = LocalDate.now();
         user.setAccountCreatedDate(accountCreatedDate);
+
+        // User status assignation
         user.setStatus(UserStatus.PENDING);
+
+        // Vendor quota asssignation
         Role role = user.getRoles().get(0);
-        if (role.getName()=="VENDOR")
+        System.out.println("***********************************");
+        System.out.println(role.getName());
+        if (role.getName().equals("VENDOR"))
             user.setQuota(5000.0);
         else
             user.setQuota(0.0);
+
+        System.out.println("Quota: "+user.getQuota());
+
         userRepository.save(user);
     }
 

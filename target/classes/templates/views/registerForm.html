@@ -30,6 +30,13 @@
                     <div class="text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
                 </div>
 
+                <!-- re-type password -->
+                <div class="form-group">
+                    <label for="retypePassword" class="form-control-label">Re-type Password</label>
+                    <input type="password" class="form-control" th:field="*{retypePassword}" id="retypePassword" />
+                    <div class="text text-danger" th:if="${#fields.hasErrors('retypePassword')}" th:errors="*{retypePassword}"></div>
+                </div>
+
                 <!-- name -->
                 <div class="form-group">
                     <label for="name" class="form-control-label">Name</label>
@@ -51,27 +58,11 @@
                     <div class="text text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
                 </div>
 
-<!--                <div class="form-group">-->
-<!--                    <select class="custom-select">-->
-<!--                        <option selected="">Open this select menu</option>-->
-<!--                        <option value="1">One</option>-->
-<!--                        <option value="2">Two</option>-->
-<!--                        <option value="3">Three</option>-->
-<!--                    </select>-->
-<!--                </div>-->
 
                 <!-- role -->
                 <div class="form-group">
                     <label for="roles" class="form-control-label">Role</label>
-<!--                    <select id="role" th:field="*{roles}" class="custom-select">-->
-<!--                        <option value="ADMIN"><span th:text="ADMIN">Admin</span></option>-->
-<!--                        <option value="VENDOR"><span th:text="VENDOR">Vendor</span></option>-->
-<!--                        <option value="USER"><span th:text="USER">USER</span></option>-->
-<!--                        <option value="CUSTOMER"><span th:text="CUSTOMER">Customer</span></option>-->
-<!--                        <option value="EMPLOYEE"><span th:text="EMPLOYEE">Employee</span></option>-->
-<!--                    </select>-->
 
-<!--                    <select id="roles" name="roles" class="user-form-control" multiple="multiple">-->
                     <select id="roles" name="roles" class="custom-select" >
                         <option th:each="roles : ${roleList}" th:value="${roles.name}" th:attr="choiceid=${roles.name}" th:text="${roles.name}">
                         </option>

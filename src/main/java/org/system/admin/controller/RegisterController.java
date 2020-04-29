@@ -32,14 +32,23 @@ public class RegisterController {
 //
 //    }
 
+//    @GetMapping(value = "/register")
+//    public String registration(@ModelAttribute("user") User user) {
+//        return "views/registerForm";
+//    }
+
     @GetMapping(value = "/register")
-    public String registration(@ModelAttribute("user") User user) {
+    public String registration(@ModelAttribute("user") User user, Model model) {
+//        System.out.println("RegisterController ******ExceptADMIN*********");
+//        model.addAttribute("exceptADMIN","ADMIN");
         return "views/registerForm";
     }
 
     @ModelAttribute("roleList")
     public List<Role> getRoles(Model model) {
-        return roleService.findAll();
+
+        //return roleService.findAll();
+        return roleService.findUser();
     }
 
     @PostMapping("/register")
@@ -50,8 +59,6 @@ public class RegisterController {
             return "views/registerForm";
 
         }
-        System.out.println(user.getRoles().toString());
-
 
         if (userService.isUserPresent(user.getEmail())){
 
@@ -59,10 +66,23 @@ public class RegisterController {
             return "views/registerForm";
         }
 
-        String role = user.getRoles().get(0).toString();
-        System.out.println(role);
+//        String role = user.getRoles().get(0).toString();
+//        System.out.println(role);
+//
+//        System.out.println("1");
 
-        System.out.println("1");
+//        System.out.println("RegisterController ******ExceptADMIN*********");
+//        model.addAttribute("exceptADMIN","ADMIN");
+
+        if (!user.getPassword().equals(user.getRetypePassword())) {
+            //model.addAttribute("retypePassword","The passwords don't match!!!");
+            System.out.println("**********************");
+            bindingResult.rejectValue("retypePassword", "Retype.password",
+                    "The passwords don't match!!!");
+
+
+            return "views/registerForm";
+        }
 
         userService.createUser(user);
         System.out.println("2");

@@ -10,6 +10,7 @@ import org.system.task.model.Task;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -26,12 +27,15 @@ public class User {
     private String email;
 
     @NotEmpty
+    @Pattern(regexp="([A-Z][a-z]+)")
     private String name;
 
     @NotEmpty
+    @Pattern(regexp="([A-Z][a-z]+)")
     private String lastName;
 
     @NotEmpty
+    @Size(min=10, max=10)
     private String phoneNumber;
 
     private LocalDate accountCreatedDate = LocalDate.now();
@@ -68,6 +72,9 @@ public class User {
 
     public User() {
     }
+
+    @Transient
+    private String retypePassword;
 
     public User(String email, String name, String lastName, String phoneNumber, LocalDate accountCreatedDate, String password, List<Role> role, UserStatus status, Double quota) {
         this.email = email;
