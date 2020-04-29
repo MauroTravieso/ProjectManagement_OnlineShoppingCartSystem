@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+    <head>
+        <title>Index Page</title>
+    </head>
+    <body>
+
+        <div layout:fragment="content" class="container mySpace">
+            <div>
+
+                <h2>There was an error |<span th:text="${message}"></span>| <span th:text="${status}" class="text text-danger"></span></h2>
+
+            </div>
+
+            <div class="mySpace">
+                <h2>Please, <strong>contact the administrator</strong> if you have reached this far!!!</h2>
+            </div>
+        </div>
+
+    </body>
+</html>

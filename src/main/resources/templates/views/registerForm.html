@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+    <head>
+        <title>Register Form</title>
+    </head>
+    <body>
+
+        <div layout:fragment="content" class="container mySpace">
+            <h2>Register</h2>
+            <div class="alert alert-info" th:if="${exist}">
+                <p class="text text-center">
+                    User with this Email already exists!
+                </p>
+            </div>
+
+            <form th:action="@{/register}" th:object="${user}" method="post">
+                <!-- email -->
+                <div class="form-group">
+                    <label for="email" class="form-control-label">Email</label>
+                    <input type="text" class="form-control" th:field="*{email}" id="email" />
+                    <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="password" class="form-control-label">Password</label>
+                    <input type="password" class="form-control" th:field="*{password}" id="password" />
+                    <div class="text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                </div>
+
+                <!-- name -->
+                <div class="form-group">
+                    <label for="name" class="form-control-label">Name</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="name" />
+                    <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                </div>
+
+<!--                <div class="form-group">-->
+<!--                    <select class="custom-select">-->
+<!--                        <option selected="">Open this select menu</option>-->
+<!--                        <option value="1">One</option>-->
+<!--                        <option value="2">Two</option>-->
+<!--                        <option value="3">Three</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+
+                <!-- role -->
+                <div class="form-group">
+                    <label for="roles" class="form-control-label">Role</label>
+<!--                    <select id="role" th:field="*{roles}" class="custom-select">-->
+<!--                        <option value="ADMIN"><span th:text="ADMIN">Admin</span></option>-->
+<!--                        <option value="VENDOR"><span th:text="VENDOR">Vendor</span></option>-->
+<!--                        <option value="USER"><span th:text="USER">USER</span></option>-->
+<!--                        <option value="CUSTOMER"><span th:text="CUSTOMER">Customer</span></option>-->
+<!--                        <option value="EMPLOYEE"><span th:text="EMPLOYEE">Employee</span></option>-->
+<!--                    </select>-->
+
+<!--                    <select id="roles" name="roles" class="user-form-control" multiple="multiple">-->
+                    <select id="roles" name="roles" class="custom-select" >
+                        <option th:each="roles : ${roleList}" th:value="${roles.name}" th:attr="choiceid=${roles.name}" th:text="${roles.name}">
+                        </option>
+                    </select>
+
+                    <div class="text text-danger" th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></div>
+                </div>
+
+
+                <input type="submit" value="Submit" class="btn btn-primary" />
+
+            </form>
+        </div>
+
+    </body>
+</html>
