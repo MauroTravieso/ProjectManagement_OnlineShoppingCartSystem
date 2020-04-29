@@ -24,7 +24,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
-<!--                                <th>Status</th>-->
+                                <th>Status</th>
                                 <th>Operations</th>
                             </tr>
                         </thead>
@@ -33,9 +33,8 @@
                                 <td th:text="${user.name}"></td>
                                 <td th:text="${user.email}"></td>
                                 <td th:text="${user.roleName}"></td>
-<!--                                <td th:text="${user.userStatus}"></td>-->
-<!--                                <td th:if="${user.roleName!='ADMIN' && user.userStatus!='APPROVED'}">-->
-                                <td th:if="${user.roleName!='ADMIN'}">
+                                <td th:text="${user.userStatus}"></td>
+                                <td th:if="${user.roleName!='ADMIN' && user.userStatus!='ACTIVE '}">
                                     <a th:href="@{/addTask(email=${user.email})}" class="btn btn-primary">Approve</a>
                                     <a th:href="@{/addTask(email=${user.email})}" class="btn btn-danger" >Reject</a>
                                 </td>

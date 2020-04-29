@@ -12,6 +12,7 @@ import org.system.task.model.Task;
 public abstract class User_ {
 
 	public static volatile SingularAttribute<User, String> password;
+	public static volatile SingularAttribute<User, UserStatus> stats;
 	public static volatile ListAttribute<User, Role> roles;
 	public static volatile SingularAttribute<User, String> name;
 	public static volatile SingularAttribute<User, String> email;
@@ -19,6 +20,7 @@ public abstract class User_ {
 	public static volatile SingularAttribute<User, UserStatus> status;
 
 	public static final String PASSWORD = "password";
+	public static final String STATS = "stats";
 	public static final String ROLES = "roles";
 	public static final String NAME = "name";
 	public static final String EMAIL = "email";

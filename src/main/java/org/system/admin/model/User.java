@@ -24,6 +24,7 @@ public class User {
     private String name;
     @Size(min=4)
     private String password;
+
     private UserStatus status;
 
     @OneToMany(mappedBy="user", cascade=CascadeType.ALL)
@@ -40,11 +41,11 @@ public class User {
         return roles.get(0).getName();
     }
 
-    @Transient
-    private UserStatus stat;
+//    @Transient
+    private UserStatus stats;
 
     public String getUserStatus() {
-        return stat.toString();
+        return status.toString();
     }
 
     public User() {
@@ -54,7 +55,7 @@ public class User {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.roles = roles;
+        this.roles = role;
         this.status = status;
     }
 
