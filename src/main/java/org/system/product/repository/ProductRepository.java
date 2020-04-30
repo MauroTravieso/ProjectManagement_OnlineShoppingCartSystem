@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, String> {
 
-    List<Product> findByKeyword(String keyword);
+    List<Product> findByTitleLike(String title);
 
 }

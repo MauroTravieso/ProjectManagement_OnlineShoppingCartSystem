@@ -13,8 +13,8 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<Product> getProductListByKeyWord(String keyword) {
-        return productRepository.findByKeyword(keyword);
+    public List<Product> getProductListByKeyWord(String title) {
+        return productRepository.findByTitleLike(title);
     }
 
 }
