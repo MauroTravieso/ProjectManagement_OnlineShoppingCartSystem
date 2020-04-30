@@ -5,6 +5,7 @@ package org.system.admin.model;
 
 import lombok.Data;
 import org.system.role.model.Role;
+import org.system.shoppingcart.model.Cart;
 import org.system.task.model.Task;
 
 import javax.persistence.*;
@@ -13,7 +14,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -23,41 +23,44 @@ public class User {
     @Id
     @Email
     @NotEmpty
-    @Column(unique=true)
+    @Column(unique = true)
     private String email;
 
     @NotEmpty
-    @Pattern(regexp="([A-Z][a-z]+)")
+    @Pattern(regexp = "([A-Z][a-z]+)")
     private String name;
 
     @NotEmpty
-    @Pattern(regexp="([A-Z][a-z]+)")
+    @Pattern(regexp = "([A-Z][a-z]+)")
     private String lastName;
 
     @NotEmpty
-    @Size(min=10, max=10)
+    @Size(min = 10, max = 10)
     private String phoneNumber;
 
     private LocalDate accountCreatedDate = LocalDate.now();
 
     private LocalDate statusChangedDate;
 
-    @Size(min=4)
+    @Size(min = 4)
     private String password;
 
     private UserStatus status;
 
     private double quota;
 
-    @OneToMany(mappedBy="user", cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Task> tasks;
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="USER_ROLES", joinColumns = {@JoinColumn(name="USER_EMAIL", referencedColumnName = "email")},
-                                  inverseJoinColumns = {@JoinColumn(name="ROLE_NAME", referencedColumnName = "name")})
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "USER_ROLES", joinColumns = {@JoinColumn(name = "USER_EMAIL", referencedColumnName = "email")},
+            inverseJoinColumns = {@JoinColumn(name = "ROLE_NAME", referencedColumnName = "name")})
     private List<Role> roles;
 
     @Transient
     private Role roleName;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Cart cart;
 
     public String getRoleName() {
         return roles.get(0).getName();
@@ -137,5 +140,11 @@ public class User {
         this.roles = roles;
     }
 
+    public Cart getCart() {
+        return cart;
+    }
 
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 }

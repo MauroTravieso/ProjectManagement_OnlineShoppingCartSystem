@@ -1,4 +1,4 @@
-package org.system.shoppingcart;
+package org.system.shoppingcart.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
