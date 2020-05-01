@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+</head>
+<body>
+<div layout:fragment="content" class="container mySpace">
+    <h2>Add a new product</h2>
+
+    <form th:action="@{/addProductToDB}" th:object="${product}" method="post">
+        <!-- title -->
+        <div class="form-group">
+            <label for="title" class="form-control-label">title</label>
+            <input type="text" class="form-control" th:field="*{title}" id="title"/>
+            <div class="text text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+        </div>
+
+        <!-- description -->
+        <div class="form-group">
+            <label for="description" class="form-control-label">description</label>
+            <input type="text" class="form-control" th:field="*{description}" id="description"/>
+            <div class="text text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        </div>
+
+        <!-- price -->
+        <div class="form-group">
+            <label for="price" class="form-control-label">price</label>
+            <input type="text" class="form-control" th:field="*{price}" id="price"/>
+            <div class="text text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-primary"/>
+
+    </form>
+</div>
+</body>
+</html>

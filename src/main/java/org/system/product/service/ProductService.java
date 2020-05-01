@@ -17,4 +17,20 @@ public class ProductService {
         return productRepository.findByTitleLike(title);
     }
 
+    public void addProduct(Product product) {
+        productRepository.save(product);
+    }
+
+    public void deleteProduct(Product product) {
+        productRepository.delete(product);
+    }
+
+    public void updateProduct(Product product) {
+        productRepository.save(product);
+    }
+
+    public Product findProductById(String id) {
+        return productRepository.findById(id).orElseThrow(() -> null);
+    }
+
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>search product</title>
+</head>
+<body>
+<div layout:fragment="content" class="container mySpace">
+
+    <form th:action="@{/searchProductBySeller}" method="get">
+        <!-- keyword -->
+        <div class="form-group">
+            <label for="keyword" class="form-control-label">input keyword</label>
+            <input type="text" class="form-control" id="keyword" name="keyword"/>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
