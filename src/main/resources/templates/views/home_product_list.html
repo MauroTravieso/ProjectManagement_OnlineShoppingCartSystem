@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/product_list.css}">
+</head>
+<body>
+<div layout:fragment="content" class="container mySpace">
+    <div class="product_list_head">
+        <h2>Product List</h2>
+        <form action="/home" class="form-inline">
+            <div class="form-group mb-2">
+                <input type="text" class="form-control" name="title" placeholder="Search Product"/>
+                <input type="submit" value="Search" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+
+
+    <!--card-->
+    <div class="product_list">
+        <div th:each="product:${datas}" class="card mb-3 product_card" >
+            <img style="height: 250px; width: 250px; display: block;" th:src="${product.image}" alt="Product image">
+            <div class="card-body">
+                <h5 class="card-title product_title" th:text="${product.title}"></h5>
+                <div class="product_bottom">
+                    <h6 class="card-subtitle product_price" th:text="'$'+${product.price}"></h6>
+                    <button type="button" class="btn btn-primary">ADD TO CART</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--Pagination-->
+    <div th:replace="fragments/pagelist::pagelist"></div>
+
+</div>
+
+<!--
+<div layout:fragment="content" class="container mySpace">
+
+
+
+
+</div>
+-->
+</body>
+</html>

@@ -1,0 +1,60 @@
+<div th:fragment="pagelist" >
+
+
+    <div th:if="${datas.totalPages gt 1}">
+        <div th:with="title=${#httpServletRequest.getParameter('title')}">
+            <div th:if="${#strings.isEmpty(title)}">
+                <ul class="pagination" style="justify-content: center">
+                    <li class="page-item " th:classappend="${datas.number==0} ? disabled : ''">
+                        <a class="page-link" th:href="@{/home(page=${datas.number-1})}">&laquo;</a>
+                    </li>
+                    <li class="page-item" th:if="${datas.number-1>0}">
+                        <a class="page-link" th:href="@{/home(page=${datas.number-2})}" th:text="${datas.number-1}"></a>
+                    </li>
+                    <li class="page-item" th:if="${datas.number>0}">
+                        <a class="page-link" th:href="@{/home(page=${datas.number-1})}" th:text="${datas.number}"></a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" th:href="@{/home(page=${datas.number})}" th:text="${datas.number+1}"></a>
+                    </li>
+                    <li class="page-item" th:if="${datas.number+1<datas.totalPages}">
+                        <a class="page-link" th:href="@{/home(page=${datas.number+1})}" th:text="${datas.number+2}"></a>
+                    </li>
+                    <li class="page-item" th:if="${datas.number+2<datas.totalPages}">
+                        <a class="page-link" th:href="@{/home(page=${datas.number+2})}" th:text="${datas.number+3}"></a>
+                    </li>
+                    <li class="page-item" th:classappend="${datas.number==datas.totalPages-1} ? disabled : ''">
+                        <a class="page-link" th:href="@{/home(page=${datas.number+1})}">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+            <div th:unless="${#strings.isEmpty(title)}">
+                <ul class="pagination" style="justify-content: center">
+                    <li class="page-item " th:classappend="${datas.number==0} ? disabled : ''">
+                        <a class="page-link" th:href="@{/home(page=${datas.number-1},title=${title})}">&laquo;</a>
+                    </li>
+                    <li class="page-item" th:if="${datas.number-1>0}">
+                        <a class="page-link" th:href="@{/home(page=${datas.number-2},title=${title})}" th:text="${datas.number-1}"></a>
+                    </li>
+                    <li class="page-item" th:if="${datas.number>0}">
+                        <a class="page-link" th:href="@{/home(page=${datas.number-1},title=${title})}" th:text="${datas.number}"></a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" th:href="@{/home(page=${datas.number},title=${title})}" th:text="${datas.number+1}"></a>
+                    </li>
+                    <li class="page-item" th:if="${datas.number+1<datas.totalPages}">
+                        <a class="page-link" th:href="@{/home(page=${datas.number+1},title=${title})}" th:text="${datas.number+2}"></a>
+                    </li>
+                    <li class="page-item" th:if="${datas.number+2<datas.totalPages}">
+                        <a class="page-link" th:href="@{/home(page=${datas.number+2},title=${title})}" th:text="${datas.number+3}"></a>
+                    </li>
+                    <li class="page-item" th:classappend="${datas.number==datas.totalPages-1} ? disabled : ''">
+                        <a class="page-link" th:href="@{/home(page=${datas.number+1},title=${title})}">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
