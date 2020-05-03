@@ -24,7 +24,7 @@
                 <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
                     <a class="nav-link" href="/users">Users</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item active" sec:authorize="hasRole('ROLE_USER')">
                     <a class="nav-link" href="/home">Home Product</a>
                 </li>
                 <li class="nav-item">
