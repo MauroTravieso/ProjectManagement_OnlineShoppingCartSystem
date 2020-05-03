@@ -12,7 +12,7 @@ public class ProductListController {
     @Autowired
     private ProductListService productListService;
 
-    @GetMapping("/home")
+    @GetMapping({"/", "/home"})
     public String home(Model model, @RequestParam(defaultValue = "") String title, @RequestParam(defaultValue = "0") int page) {
         if (title.isEmpty()) {
             model.addAttribute("datas", productListService.getProductListByPage(page));
