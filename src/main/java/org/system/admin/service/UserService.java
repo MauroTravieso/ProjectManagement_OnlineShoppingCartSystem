@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.system.admin.model.UserStatus;
+import org.system.permission.model.Permission;
 import org.system.role.model.Role;
 import org.system.admin.model.User;
 import org.system.admin.repository.UserRepository;
@@ -20,9 +21,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private RoleRepository roleRepository;
-
     public void createUser(User user) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
@@ -38,6 +36,15 @@ public class UserService {
 
         // User status assignation
         user.setStatus(UserStatus.PENDING);
+
+        Permission userPermission0 = new Permission("NO_ACCESS_REPORT");
+        Permission userPermission1 = new Permission("NO_UPLOAD_PRODUCT");
+        Permission userPermission2 = new Permission("NO_UPDATE_PRODUCT");
+        List<Permission> permissions = new ArrayList<>();
+        permissions.add(userPermission0);
+        permissions.add(userPermission1);
+        permissions.add(userPermission2);
+        user.setPermissions(permissions);
 
         // Vendor quota asssignation
         Role role = user.getRoles().get(0);
@@ -56,10 +63,21 @@ public class UserService {
     public void createAdmin(User user) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
+
         Role userRole = new Role("ADMIN");
         List<Role> roles = new ArrayList<>();
         roles.add(userRole);
         user.setRoles(roles);
+
+        Permission userPermission0 = new Permission("ACCESS_REPORT");
+        Permission userPermission1 = new Permission("UPLOAD_PRODUCT");
+        Permission userPermission2 = new Permission("UPDATE_PRODUCT");
+        List<Permission> permissions = new ArrayList<>();
+        permissions.add(userPermission0);
+        permissions.add(userPermission1);
+        permissions.add(userPermission2);
+        user.setPermissions(permissions);
+
         userRepository.save(user);
     }
 
@@ -77,12 +95,18 @@ public class UserService {
     }
 
     public List<User> findAll() {
-
         return userRepository.findAll();
-
     }
 
     public List<User> findByName(String name) {
         return userRepository.findByNameLike("%"+name+"%");
+    }
+
+    public void approveUser(String email) {
+        userRepository.approveUser(email);
+    }
+
+    public void save(User user) {
+        userRepository.save(user);
     }
 }

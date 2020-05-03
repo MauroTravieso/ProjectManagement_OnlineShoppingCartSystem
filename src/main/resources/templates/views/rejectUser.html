@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Register Form</title>
+</head>
+<body>
+
+<div layout:fragment="content" class="container mySpace">
+    <h2>Reject user</h2>
+    <!--    <div class="alert alert-info" th:if="${exist}">-->
+    <!--        <p class="text text-center">-->
+    <!--            User with this Email already exists!-->
+    <!--        </p>-->
+    <!--    </div>-->
+
+    <form th:action="@{/reject}" th:object="${user}" method="post">
+        <!-- email -->
+        <div class="form-group">
+            <label for="email" class="form-control-label">Email</label>
+            <input type="text" class="form-control" th:field="*{email}" id="email" readonly="" />
+            <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        </div>
+
+        <!-- name -->
+        <div class="form-group">
+            <label for="name" class="form-control-label">Name</label>
+            <input type="text" class="form-control" th:field="*{name}" id="name" readonly="" />
+            <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </div>
+
+        <!-- lastname -->
+        <div class="form-group">
+            <label for="lastName" class="form-control-label">Lastname</label>
+            <input type="text" class="form-control" th:field="*{lastName}" id="lastName" readonly="" />
+            <div class="text text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+        </div>
+
+        <!-- phoneNumber -->
+        <div class="form-group">
+            <label for="phoneNumber" class="form-control-label">Phone Number</label>
+            <input type="text" class="form-control" th:field="*{phoneNumber}" id="phoneNumber" th:placeholder="nnn-nnn-nnnn" readonly=""/>
+            <div class="text text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
+        </div>
+
+        <!--        &lt;!&ndash; role &ndash;&gt;-->
+        <!--        <div class="form-group">-->
+        <!--            <label for="roles" class="form-control-label">Role</label>-->
+
+        <!--            <select id="roles" name="roles" class="custom-select" >-->
+        <!--                <option th:each="roles : ${roleList}" th:value="${roles.name}" th:attr="choiceid=${roles.name}" th:text="${roles.name}">-->
+        <!--                </option>-->
+        <!--            </select>-->
+
+        <!--            <div class="text text-danger" th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></div>-->
+        <!--        </div>-->
+
+
+        <input type="submit" value="Confirm" class="btn btn-danger" />
+
+    </form>
+</div>
+
+</body>
+</html>

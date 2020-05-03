@@ -1,4 +1,4 @@
-package org.system.role.model;
+package org.system.permission.model;
 
 import org.system.admin.model.User;
 
@@ -8,22 +8,22 @@ import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
-public class Role {
+public class Permission {
 
     @Id
     private String name;
 
-    @ManyToMany(mappedBy="roles")
+    @ManyToMany(mappedBy="permissions")
     private List<User> users;
 
-    public Role() {
+    public Permission() {
     }
 
-    public Role(String name) {
+    public Permission(String name) {
         this.name = name;
     }
 
-    public Role(String name, List<User> users) {
+    public Permission(String name, List<User> users) {
         this.name = name;
         this.users = users;
     }

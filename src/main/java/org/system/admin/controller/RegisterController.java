@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.system.admin.model.User;
 import org.system.admin.service.UserService;
+import org.system.permission.model.Permission;
+import org.system.permission.service.PermissionService;
 import org.system.role.service.RoleService;
 import org.system.role.model.Role;
 
@@ -23,6 +25,9 @@ public class RegisterController {
 
     @Autowired
     private RoleService roleService;
+
+//    @Autowired
+//    private PermissionService permissionService;
 
 //    @GetMapping("/register")
 //    public String registerForm(Model model) {
@@ -61,7 +66,6 @@ public class RegisterController {
         }
 
         if (userService.isUserPresent(user.getEmail())){
-
             model.addAttribute("exist", true);
             return "views/registerForm";
         }

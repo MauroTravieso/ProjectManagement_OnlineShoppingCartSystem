@@ -3,14 +3,14 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{fragments/main_layout}">
     <head>
-        <title>Register Form</title>
+        <title>Login Form</title>
     </head>
     <body>
 
         <div layout:fragment="content" class="container mySpace">
             <h2>Log In</h2>
             <div class="alert alert-danger" th:if="${param.error}">
-                <h2>Invalid Email or Password!</h2>
+                <h2>Invalid Email or Password! Please contact administration.</h2>
             </div>
 
             <form th:action="@{/login}" method="post">

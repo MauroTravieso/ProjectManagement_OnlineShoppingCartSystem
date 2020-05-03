@@ -54,7 +54,7 @@
                 <!-- phoneNumber -->
                 <div class="form-group">
                     <label for="phoneNumber" class="form-control-label">Phone Number</label>
-                    <input type="text" class="form-control" th:field="*{phoneNumber}" id="phoneNumber" />
+                    <input type="text" class="form-control" th:field="*{phoneNumber}" id="phoneNumber" th:placeholder="nnn-nnn-nnnn"/>
                     <div class="text text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
                 </div>
 

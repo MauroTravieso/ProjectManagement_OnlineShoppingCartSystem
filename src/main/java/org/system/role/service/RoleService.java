@@ -2,6 +2,7 @@ package org.system.role.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.system.admin.model.User;
 import org.system.role.model.Role;
 import org.system.role.repository.RoleRepository;
 
@@ -24,4 +25,10 @@ public class RoleService {
     public List<Role> findUser() {
         return roleRepository.findUser();
     }
+
+//    public List<User> findByRole(String name) {
+//        return roleRepository.findByNameLike("%"+name+"%");
+//    }
+
+
 }

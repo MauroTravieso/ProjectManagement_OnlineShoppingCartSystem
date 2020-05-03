@@ -4,6 +4,7 @@ package org.system.admin.model;
 //import org.hibernate.validator.constraints.NotEmpty;
 
 import lombok.Data;
+import org.system.permission.model.Permission;
 import org.system.role.model.Role;
 import org.system.shoppingcart.model.Cart;
 import org.system.task.model.Task;
@@ -14,6 +15,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -21,9 +23,9 @@ import java.util.List;
 public class User {
 
     @Id
-    @Email
+    @Email(message = "Email should be valid")
     @NotEmpty
-    @Column(unique = true)
+    @Column(unique=true)
     private String email;
 
     @NotEmpty
@@ -35,26 +37,36 @@ public class User {
     private String lastName;
 
     @NotEmpty
-    @Size(min = 10, max = 10)
+    @Size(min=10, max=12)
+    @Pattern(regexp = "^\\(?([0-8]{1}[1-8]{1}[1-9]{1})\\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$", message="Invalid number")
     private String phoneNumber;
 
     private LocalDate accountCreatedDate = LocalDate.now();
 
     private LocalDate statusChangedDate;
 
-    @Size(min = 4)
+    @Size(min=4)
     private String password;
 
     private UserStatus status;
 
     private double quota;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="user", cascade=CascadeType.ALL)
     private List<Task> tasks;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "USER_ROLES", joinColumns = {@JoinColumn(name = "USER_EMAIL", referencedColumnName = "email")},
-            inverseJoinColumns = {@JoinColumn(name = "ROLE_NAME", referencedColumnName = "name")})
+
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="USER_ROLES", joinColumns = {@JoinColumn(name="USER_EMAIL", referencedColumnName = "email")},
+                                  inverseJoinColumns = {@JoinColumn(name="ROLE_NAME", referencedColumnName = "name")})
     private List<Role> roles;
+
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="USER_PERMISSIONS", joinColumns = {@JoinColumn(name="USER_EMAIL", referencedColumnName = "email")},
+            inverseJoinColumns = {@JoinColumn(name="PERMISSION_NAME", referencedColumnName = "name")})
+    private List<Permission> permissions;
+
+    @Transient
+    private String retypePassword;
 
     @Transient
     private Role roleName;
@@ -77,7 +89,12 @@ public class User {
     }
 
     @Transient
-    private String retypePassword;
+    private Permission perms;
+
+    public String getPerms() {
+        return permissions.get(0).getName();
+    }
+
 
     public User(String email, String name, String lastName, String phoneNumber, LocalDate accountCreatedDate, String password, List<Role> role, UserStatus status, Double quota) {
         this.email = email;

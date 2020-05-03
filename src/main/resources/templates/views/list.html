@@ -8,13 +8,20 @@
     <body>
 
         <div layout:fragment="content" class="container mySpace">
-            <h2>Users & Permission Assignation</h2>
+            <h2>Users Activation & Permission and Tasks Assignation</h2>
             <form action="/users" class="form-inline">
                 <div class="form-group mb-2">
                     <input type="text" class="form-control" name="name" placeholder="Search User"/>
                     <input type="submit" value="Search" class="btn btn-primary"/>
                 </div>
             </form>
+
+<!--            <form action="/usersRole" class="form-inline">-->
+<!--                <div class="form-group mb-2">-->
+<!--                    <input type="text" class="form-control" name="name" placeholder="Search Role"/>-->
+<!--                    <input type="submit" value="Search" class="btn btn-primary"/>-->
+<!--                </div>-->
+<!--            </form>-->
 
             <div class="card">
                 <div class="card card-body">
@@ -26,6 +33,8 @@
                                 <th>Role</th>
                                 <th>Status</th>
                                 <th>Operations</th>
+                                <th>Permissions</th>
+                                <th>Tasks</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,9 +43,23 @@
                                 <td th:text="${user.email}"></td>
                                 <td th:text="${user.roleName}"></td>
                                 <td th:text="${user.userStatus}"></td>
-                                <td th:if="${user.roleName!='ADMIN' && user.userStatus!='ACTIVE '}">
-                                    <a th:href="@{/addTask(email=${user.email})}" class="btn btn-primary">Approve</a>
-                                    <a th:href="@{/addTask(email=${user.email})}" class="btn btn-danger" >Reject</a>
+                                <td th:if="${ user.email != 'admin@mail.com' }">
+<!--                                <td th:if="${ user.roleName!='ADMIN' || (user.roleName=='ADMIN' && user.userStatus=='PENDING') }">-->
+<!--                                <td th:if="${ user.roleName!='ADMIN' && user.userStatus!='ACTIVE' }">-->
+<!--                                <td th:if="${user.userStatus!='ACTIVE'}">-->
+<!--                                    <a th:href="@{/addTask(email=${user.email})}" class="btn btn-primary">Approve</a>-->
+<!--                                    <a th:href="@{/addTask(email=${user.email})}" class="btn btn-danger" >Reject</a>-->
+                                    <a th:href="@{/approve(email=${user.email})}" class="btn btn-outline-success" th:if="${user.userStatus=='PENDING' || user.userStatus=='REJECTED' }">Activation</a>
+                                    <a th:href="@{/reject(email=${user.email})}"  class="btn btn-outline-danger"  th:if="${user.userStatus=='PENDING' || user.userStatus=='ACTIVE' }">  Deactivate</a>
+                                </td>
+                                <td th:if="${ user.roleName!='ADMIN' || (user.roleName=='EMPLOYEE' || user.roleName=='VENDOR')}">
+                                    <a th:href="@{/approvePermission(email=${user.email})}" class="btn btn-outline-info"    th:if="${(user.userStatus=='ACTIVE' && user.perms =='NO_ACCESS_REPORT') }">Grant</a>
+                                    <a th:href="@{/rejectPermission(email=${user.email})}"  class="btn btn-outline-warning" th:if="${user.userStatus=='ACTIVE' && user.perms=='ACCESS_REPORT'}">Revoke</a>
+<!--                                    <a th:href="@{/approvePermission(email=${user.email})}" class="btn btn-outline-info"    th:if="${user.userStatus=='ACTIVE' }">Grant</a>-->
+<!--                                    <a th:href="@{/rejectPermission(email=${user.email})}"  class="btn btn-outline-warning" th:if="${user.userStatus=='ACTIVE' }">Revoke</a>-->
+                                </td>
+                                <td th:if="${ user.roleName=='EMPLOYEE'}">
+                                    <a th:href="@{/addTask(email=${user.email})}"  class="btn btn-outline-warning"  th:if="${user.userStatus=='ACTIVE' }">Assign</a>
                                 </td>
                             </tr>
                         </tbody>

@@ -9,6 +9,8 @@ import org.system.admin.model.UserStatus;
 import org.system.admin.service.UserService;
 import org.system.product.model.Product;
 import org.system.product.service.ProductService;
+import org.system.permission.model.Permission;
+import org.system.permission.service.PermissionService;
 import org.system.role.model.Role;
 import org.system.role.service.RoleService;
 
@@ -28,31 +30,46 @@ import java.util.List;
 @SpringBootApplication
 public class OnlineShoppingCartSystemApplication implements CommandLineRunner {
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    @Autowired
-    private RoleService roleService;
+	@Autowired
+	private RoleService roleService;
 
-    @Autowired
+	@Autowired
+	private PermissionService permissionService;
+
+	@Autowired
     private ProductService productService;
 
     public static void main(String[] args) {
         SpringApplication.run(OnlineShoppingCartSystemApplication.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        List<Role> roles = new ArrayList<>();
-        //roles.add(new Role("ADMIN"));
-        roles.add(new Role("VENDOR"));
-        roles.add(new Role("EMPLOYEE"));
-        roles.add(new Role("CUSTOMER"));
-        roles.add(new Role("USER"));
+	@Override
+	public void run(String...args) throws Exception {
 
-        roleService.save(roles);
+		// Roles definition
+		List<Role> roles = new ArrayList<>();
+		roles.add(new Role("ADMIN"));
+		roles.add(new Role("VENDOR"));
+		roles.add(new Role("EMPLOYEE"));
+		roles.add(new Role("CUSTOMER"));
+		roles.add(new Role("USER"));
 
-        List<Role> rolesAdmin = new ArrayList<>();
+		roleService.save(roles);
+
+		// Permissions definition
+		List<Permission> permissions = new ArrayList<>();
+		permissions.add(new Permission("ACCESS_REPORT"));
+		permissions.add(new Permission("UPLOAD_PRODUCT"));
+		permissions.add(new Permission("UPDATE_PRODUCT"));
+
+		permissionService.save(permissions);
+
+
+		// Administrative account creation
+		List<Role> rolesAdmin = new ArrayList<>();
         rolesAdmin.add(new Role("ADMIN"));
 
         UserStatus status = UserStatus.ACTIVE;
