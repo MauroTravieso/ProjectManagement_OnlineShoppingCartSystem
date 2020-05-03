@@ -8,7 +8,7 @@ import org.system.product.model.Product;
 
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<Product, String> {
+public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> findByTitleLike(String title);
     @Query("SELECT p FROM Product p WHERE p.title LIKE ?1%")
     Page<Product> findByTitleLike(String title, Pageable pageable);

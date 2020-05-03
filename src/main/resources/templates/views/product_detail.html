@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Product Detail</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/product_detail.css}">
+</head>
+<body>
+<div layout:fragment="content" class="container mySpace">
+    <div class="product">
+        <div class="card mb-3 product_card">
+            <img style="height: 500px; width: 500px; display: block;"
+                 th:src="${product.image}" alt="Product image"
+                 onerror="this.src='/image/product-default.jpg'"/>
+            <div class="card-body">
+                <h5 class="card-title product_title" th:text="${product.title}"></h5>
+                <p class="card-text" th:text="${product.description}"></p>
+
+                <div class="product_bottom">
+                    <h6 class="card-subtitle product_price" th:text="'$'+${product.price}"></h6>
+                    <button type="button"
+                            class="btn btn-primary">ADD TO CART</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

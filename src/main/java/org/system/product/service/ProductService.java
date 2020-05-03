@@ -30,7 +30,7 @@ public class ProductService {
     }
 
     public Product findProductById(String id) {
-        return productRepository.findById(id).orElseThrow(() -> null);
+        return productRepository.findById(Integer.valueOf(id)).orElseThrow(() -> null);
     }
 
 }
