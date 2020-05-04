@@ -9,7 +9,7 @@
     <form th:action="@{/saveProduct}" method="post">
 
         <input type="hidden" class="form-control" name="vendor_id" th:value="*{product.vendor_id}"/>
-<!--        <input type="hidden" class="form-control" name="id" th:value="*{product.id}"/>-->
+        <input type="hidden" class="form-control" name="id" th:value="*{product.id}"/>
 
         <!-- title -->
         <div class="form-group">
@@ -32,16 +32,24 @@
 
         <div class="form-group">
             <select name="product_status" class="custom-select">
-                <option th:each="product_status_Opt : ${T(org.system.product.model.ProductStatus).values()}"
+                <option th:if="${product_status_Opt == product.product_status}"
+                        th:each="product_status_Opt : ${T(org.system.product.model.ProductStatus).values()}"
+                        th:value="${product_status_Opt}" th:text="${product_status_Opt}" selected></option>
+                <option th:unless="${product_status_Opt == product.product_status}"
+                        th:each="product_status_Opt : ${T(org.system.product.model.ProductStatus).values()}"
                         th:value="${product_status_Opt}" th:text="${product_status_Opt}"></option>
             </select>
         </div>
 
         <div class="form-group">
             <select name="product_process_status" class="custom-select">
-                <option th:each="product_process_status_Opt : ${T(org.system.product.model.ProductProcessStatus).values()}"
+                <option th:if="${product_process_status_Opt == product.product_process_status}"
+                        th:each="product_process_status_Opt : ${T(org.system.product.model.ProductProcessStatus).values()}"
                         th:value="${product_process_status_Opt}" th:text="${product_process_status_Opt}"
                         selected></option>
+                <option th:unless="${product_process_status_Opt == product.product_process_status}"
+                        th:each="product_process_status_Opt : ${T(org.system.product.model.ProductProcessStatus).values()}"
+                        th:value="${product_process_status_Opt}" th:text="${product_process_status_Opt}"></option>
             </select>
         </div>
 
