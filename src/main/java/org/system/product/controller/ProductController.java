@@ -44,7 +44,6 @@ public class ProductController {
 
     @PostMapping("/saveProduct")
     public String doUpdateProduct(Product product) {
-        product.setImage("image001");
         productService.updateProduct(product);
         return "views/editProduct";
     }

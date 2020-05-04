@@ -9,7 +9,6 @@
     <form th:action="@{/saveProduct}" method="post">
 
         <input type="hidden" class="form-control" name="vendor_id" th:value="*{product.vendor_id}"/>
-<!--        <input type="hidden" class="form-control" name="id" th:value="*{product.id}"/>-->
 
         <!-- title -->
         <div class="form-group">
@@ -40,9 +39,14 @@
         <div class="form-group">
             <select name="product_process_status" class="custom-select">
                 <option th:each="product_process_status_Opt : ${T(org.system.product.model.ProductProcessStatus).values()}"
-                        th:value="${product_process_status_Opt}" th:text="${product_process_status_Opt}"
-                        selected></option>
+                        th:value="${product_process_status_Opt}" th:text="${product_process_status_Opt}"></option>
             </select>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Image input</label>
+            <input type="text" class="form-control" id="image" name="image" th:field="*{product.image}">
+            <small id="fileHelp" class="form-text text-muted">Upload the image for the product.</small>
         </div>
 
         <input type="submit" value="Submit" class="btn btn-primary"/>
