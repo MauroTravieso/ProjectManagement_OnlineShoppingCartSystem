@@ -6,6 +6,9 @@ import org.system.product.model.Product;
 
 import java.util.List;
 
+/**
+ * Duosi Zhang Team2
+ */
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findByTitleLike(String title);

@@ -24,9 +24,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
         auth.jdbcAuthentication().dataSource(dataSource)
-        .usersByUsernameQuery("select email as principal, password as credentials, true from user where email=?")
-        .authoritiesByUsernameQuery("select user_email as principal, role_name as role from user_roles where user_email=?")
-        .passwordEncoder(passwordEncoder()).rolePrefix("ROLE_"); // To access ROLE_ADMIN or ROLE_USER
+                .usersByUsernameQuery("select email as principal, password as credentials, true from user where email=?")
+                .authoritiesByUsernameQuery("select user_email as principal, role_name as role from user_roles where user_email=?")
+                .passwordEncoder(passwordEncoder()).rolePrefix("ROLE_"); // To access ROLE_ADMIN or ROLE_USER
 
     }
 
@@ -47,9 +47,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        .defaultSuccessUrl("/profile").and().logout().logoutSuccessUrl("/login");
 
         http.authorizeRequests()
-                .antMatchers("/register", "/", "/about", "/", "/login", "/css/**", "/webjars/**").permitAll()
+                .antMatchers("/register", "/", "/about", "/", "/login", "/css/**", "/webjars/**", "/searchProductBySeller", "/addProduct", "/listProductByKeyword", "/productEdit").permitAll()
                 .antMatchers("/profile").hasAnyRole("USER,ADMIN,VENDOR,CUSTOMER")
-                .antMatchers("/users","/addTask").hasRole("ADMIN")
+                .antMatchers("/users", "/addTask").hasRole("ADMIN")
                 .and().formLogin().loginPage("/login").permitAll()
                 .defaultSuccessUrl("/profile").and().logout().logoutSuccessUrl("/login");
 

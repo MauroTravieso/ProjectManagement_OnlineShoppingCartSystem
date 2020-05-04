@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{fragments/main_layout}">
+<!-- Duosi Zhang Team2 -->
 <head>
     <meta charset="UTF-8">
     <title>search product</title>
@@ -10,7 +11,7 @@
 
     <form action="#" th:action="@{/listProductByKeyword}" class="form-inline">
         <div class="form-group mb-2">
-            <input type="hidden" class="form-control" name="userId" th:value="*{userId}"/>
+<!--            <input type="hidden" class="form-control" name="userId" th:value="*{userId}"/>-->
             <input type="text" class="form-control" name="keyword" placeholder="Search Product"/>
             <input type="submit" value="Search" class="btn btn-primary"/>
         </div>
@@ -18,7 +19,7 @@
 
     <form action="#" th:action="@{/addProduct}" class="form-inline">
         <div class="form-group mb-2">
-            <input type="hidden" class="form-control" name="userId" th:value="*{userId}"/>
+<!--            <input type="hidden" class="form-control" name="userId" th:value="*{userId}"/>-->
             <input type="submit" value="Add A New Product" class="btn btn-primary"/>
         </div>
     </form>
