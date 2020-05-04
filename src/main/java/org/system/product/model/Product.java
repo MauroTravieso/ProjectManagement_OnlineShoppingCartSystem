@@ -6,6 +6,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/**
+ * (Duosi Zhang 987000)
+ */
 @Data
 @Entity
 public class Product {
@@ -25,7 +28,7 @@ public class Product {
     @NotNull(message = "Please enter price")
     private double price;
 
-    private ProductStatus product_status = ProductStatus.AVAILABLE;
+    private ProductStatus product_status = ProductStatus.OUT_OF_STOCK;
 
     private ProductProcessStatus product_process_status = ProductProcessStatus.PENDING;
 

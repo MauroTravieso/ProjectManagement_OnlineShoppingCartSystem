@@ -35,10 +35,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        .usersByUsernameQuery("select email as principal, password as credentials, true from user where email=?")
 //                .authoritiesByUsernameQuery("select user_email as principal, role_name as role from user_roles where user_email=?")
 //        .usersByUsernameQuery("select email as principal, password as credentials, status as status, true from user where email=?")
-        .usersByUsernameQuery("select email as principal, password as credentials, true from user where email=? and status='0'")
-        .authoritiesByUsernameQuery("select user_email as principal, role_name as role from user_roles where user_email=?")
+                .usersByUsernameQuery("select email as principal, password as credentials, true from user where email=? and status='0'")
+                .authoritiesByUsernameQuery("select user_email as principal, role_name as role from user_roles where user_email=?")
 //                .authoritiesByUsernameQuery("select user_email as principal, permission_name as permission from user_permissions where user_email=? and permission='ACCESS_REPORT' or permission='UPLOAD_PRODUCT' or permission='UPDATE_PRODUCT'")
-        .passwordEncoder(passwordEncoder()).rolePrefix("ROLE_"); // To access ROLE_ADMIN or ROLE_USER
+                .passwordEncoder(passwordEncoder()).rolePrefix("ROLE_"); // To access ROLE_ADMIN or ROLE_USER
 
     }
 
@@ -60,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
 
-                .antMatchers("/register", "/", "/about", "/", "/login", "/css/**", "/webjars/**", "/user","/cart","/user/cart")
+                .antMatchers("/register", "/", "/about", "/", "/login", "/css/**", "/webjars/**", "/user","/cart","/user/cart", "/searchProductBySeller", "/addProduct", "/listProductByKeyword", "/productEdit")
                 .permitAll()
 
                 .antMatchers("/profile").hasAnyRole("USER,ADMIN,VENDOR,CUSTOMER,EMPLOYEE")

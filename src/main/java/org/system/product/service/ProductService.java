@@ -7,14 +7,17 @@ import org.system.product.repository.ProductRepository;
 
 import java.util.List;
 
+/**
+ * (Duosi Zhang 987000)
+ */
 @Service
 public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
 
-    public List<Product> getProductListByKeyWord(String title) {
-        return productRepository.findByTitleLike(title);
+    public List<Product> getProductListByKeyWord(String title, String userId) {
+        return productRepository.findByTitleLikeAndUserId(userId, title);
     }
 
     public void addProduct(Product product) {
@@ -29,9 +32,12 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public Product findProductById(Integer id) {
-        return productRepository.findById(id).orElseThrow(() -> null);
+    public Product findProductById(String id) {
+        return productRepository.findById(Integer.valueOf(id)).get();
+    }
 
+    public Product findProductById(Integer id) {
+        return productRepository.findById(id).get();
     }
 
 }

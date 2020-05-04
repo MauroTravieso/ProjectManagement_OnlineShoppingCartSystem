@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<!-- (Duosi Zhang 987000) -->
 <head>
     <meta charset="UTF-8">
     <title>search product</title>
@@ -7,13 +9,47 @@
 <body>
 <div layout:fragment="content" class="container mySpace">
 
-    <form th:action="@{/searchProductBySeller}" method="get">
-        <!-- keyword -->
-        <div class="form-group">
-            <label for="keyword" class="form-control-label">input keyword</label>
-            <input type="text" class="form-control" id="keyword" name="keyword"/>
+    <form action="#" th:action="@{/listProductByKeyword}" class="form-inline">
+        <div class="form-group mb-2">
+<!--            <input type="hidden" class="form-control" name="userId" th:value="*{userId}"/>-->
+            <input type="text" class="form-control" name="keyword" placeholder="Search Product"/>
+            <input type="submit" value="Search" class="btn btn-primary"/>
         </div>
     </form>
+
+    <form action="#" th:action="@{/addProduct}" class="form-inline">
+        <div class="form-group mb-2">
+<!--            <input type="hidden" class="form-control" name="userId" th:value="*{userId}"/>-->
+            <input type="submit" value="Add A New Product" class="btn btn-primary"/>
+        </div>
+    </form>
+
+    <div class="card">
+        <div th:if="${productListContainer != null}" class="card card-body">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Product Status</th>
+                    <th>Product Process Status</th>
+                    <th>Edit Product</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product:${productListContainer.productList}">
+                    <td style="vertical-align: middle;" th:text="${product.title}"></td>
+                    <td style="vertical-align: middle;" th:text="${product.price}"></td>
+                    <td style="vertical-align: middle;" th:text="${product.product_status}"></td>
+                    <td style="vertical-align: middle;" th:text="${product.product_process_status}"></td>
+                    <td style="vertical-align: middle;">
+                        <a th:href="@{/productEdit(product_id=${product.id})}" class="btn btn-outline-info">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 </div>
 </body>
