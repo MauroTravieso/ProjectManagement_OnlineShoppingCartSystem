@@ -9,6 +9,7 @@ import org.system.role.model.Role;
 import org.system.admin.model.User;
 import org.system.admin.repository.UserRepository;
 import org.system.role.repository.RoleRepository;
+import org.system.shoppingcart.model.Cart;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -55,6 +56,11 @@ public class UserService {
         else
             user.setQuota(0.0);
 
+        //
+        if (role.getName().equals("USER"))
+            user.setCart(new Cart());
+
+
         System.out.println("Quota: "+user.getQuota());
 
         userRepository.save(user);
@@ -98,13 +104,17 @@ public class UserService {
         return userRepository.findAll();
     }
 
+//    public List<User> findByName(String name) {
+//        return userRepository.findByNameLike("%"+name+"%");
+//    }
+
     public List<User> findByName(String name) {
-        return userRepository.findByNameLike("%"+name+"%");
+        return userRepository.findByNameLike(name);
     }
 
-    public void approveUser(String email) {
-        userRepository.approveUser(email);
-    }
+//    public void approveUser(String email) {
+//        userRepository.approveUser(email);
+//    }
 
     public void save(User user) {
         userRepository.save(user);

@@ -30,7 +30,7 @@ public class User {
 
     @NotEmpty
     @Pattern(regexp = "([A-Z][a-z]+)")
-    private String name;
+    private String firstName;
 
     @NotEmpty
     @Pattern(regexp = "([A-Z][a-z]+)")
@@ -96,9 +96,9 @@ public class User {
     }
 
 
-    public User(String email, String name, String lastName, String phoneNumber, LocalDate accountCreatedDate, String password, List<Role> role, UserStatus status, Double quota) {
+    public User(String email, String firstName, String lastName, String phoneNumber, LocalDate accountCreatedDate, String password, List<Role> role, UserStatus status, Double quota) {
         this.email = email;
-        this.name = name;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.accountCreatedDate = accountCreatedDate;
@@ -109,12 +109,12 @@ public class User {
     }
 
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getEmail() {
