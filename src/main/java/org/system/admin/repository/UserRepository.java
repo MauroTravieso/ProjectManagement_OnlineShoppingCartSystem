@@ -9,6 +9,7 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, String> {
 
     List<User> findByNameLike(String name);
+    User findUserByEmail(String email);
 
     @Query("update User u SET u.name='Mauro' WHERE u.email=:email")
     void approveUser(String email);
