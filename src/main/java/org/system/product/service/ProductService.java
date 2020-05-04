@@ -8,7 +8,7 @@ import org.system.product.repository.ProductRepository;
 import java.util.List;
 
 /**
- * Duosi Zhang Team2
+ * (Duosi Zhang 987000)
  */
 @Service
 public class ProductService {
