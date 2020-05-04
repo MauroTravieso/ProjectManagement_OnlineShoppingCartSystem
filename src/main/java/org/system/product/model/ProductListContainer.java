@@ -2,6 +2,9 @@ package org.system.product.model;
 
 import java.util.List;
 
+/**
+ * Duosi Zhang Team2
+ */
 public class ProductListContainer {
 
     private List<Product> productList;

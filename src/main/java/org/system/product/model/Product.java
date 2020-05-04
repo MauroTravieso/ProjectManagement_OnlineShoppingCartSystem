@@ -6,6 +6,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Duosi Zhang Team2
+ */
 @Data
 @Entity
 public class Product {

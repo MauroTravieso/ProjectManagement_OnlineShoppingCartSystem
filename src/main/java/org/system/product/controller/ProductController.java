@@ -10,8 +10,13 @@ import org.system.product.model.ProductProcessStatus;
 import org.system.product.model.ProductStatus;
 import org.system.product.service.ProductService;
 
+import javax.servlet.http.HttpSession;
+import java.security.Principal;
 import java.util.List;
 
+/**
+ * Duosi Zhang Team2
+ */
 @Controller
 public class ProductController {
 
@@ -20,15 +25,19 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/searchProductBySeller/{userId}")
-    public String searchProduct(@PathVariable String userId, Model model) {
-        model.addAttribute("userId", userId);
+    @GetMapping("/searchProductBySeller")
+    public String searchProduct(Model model, Principal principal, HttpSession session) {
+        String email = principal.getName();
+        session.setAttribute("email", email);
+        model.addAttribute("userId", email);
         return "views/searchProductBySeller";
     }
 
     @GetMapping("/listProductByKeyword")
-    public String listProductByKeyword(Model model, @RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "") String userId) {
-        List<Product> productList = productService.getProductListByKeyWord(keyword, userId);
+    public String listProductByKeyword(Model model, @RequestParam(defaultValue = "") String keyword, Principal principal, HttpSession session) {
+        String email = principal.getName();
+        session.setAttribute("email", email);
+        List<Product> productList = productService.getProductListByKeyWord(keyword, email);
         ProductListContainer productListContainer = new ProductListContainer();
         productListContainer.setProductList(productList);
         model.addAttribute("productListContainer", productListContainer);
@@ -54,9 +63,11 @@ public class ProductController {
     }
 
     @GetMapping("/addProduct")
-    public String addProduct(Model model, @RequestParam(defaultValue = "") String userId) {
+    public String addProduct(Model model, Principal principal, HttpSession session) {
+        String email = principal.getName();
+        session.setAttribute("email", email);
         Product product = new Product();
-        product.setVendor_id(userId);
+        product.setVendor_id(email);
         model.addAttribute("product", product);
         return "views/addProductBySeller";
     }
