@@ -39,7 +39,7 @@
                         </thead>
                         <tbody>
                             <tr th:each="user:${users}">
-                                <td th:text="${user.name}"></td>
+                                <td th:text="${user.firstName}"></td>
                                 <td th:text="${user.email}"></td>
                                 <td th:text="${user.roleName}"></td>
                                 <td th:text="${user.userStatus}"></td>
@@ -52,7 +52,7 @@
                                     <a th:href="@{/approve(email=${user.email})}" class="btn btn-outline-success" th:if="${user.userStatus=='PENDING' || user.userStatus=='REJECTED' }">Activation</a>
                                     <a th:href="@{/reject(email=${user.email})}"  class="btn btn-outline-danger"  th:if="${user.userStatus=='PENDING' || user.userStatus=='ACTIVE' }">  Deactivate</a>
                                 </td>
-                                <td th:if="${ user.roleName!='ADMIN' || (user.roleName=='EMPLOYEE' || user.roleName=='VENDOR')}">
+                                <td th:if="${ (user.roleName=='EMPLOYEE' || user.roleName=='VENDOR')}">
                                     <a th:href="@{/approvePermission(email=${user.email})}" class="btn btn-outline-info"    th:if="${(user.userStatus=='ACTIVE' && user.perms =='NO_ACCESS_REPORT') }">Grant</a>
                                     <a th:href="@{/rejectPermission(email=${user.email})}"  class="btn btn-outline-warning" th:if="${user.userStatus=='ACTIVE' && user.perms=='ACCESS_REPORT'}">Revoke</a>
 <!--                                    <a th:href="@{/approvePermission(email=${user.email})}" class="btn btn-outline-info"    th:if="${user.userStatus=='ACTIVE' }">Grant</a>-->
