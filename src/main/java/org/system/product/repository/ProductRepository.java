@@ -7,7 +7,7 @@ import org.system.product.model.Product;
 import java.util.List;
 
 /**
- * Duosi Zhang Team2
+ * (Duosi Zhang 987000)
  */
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 

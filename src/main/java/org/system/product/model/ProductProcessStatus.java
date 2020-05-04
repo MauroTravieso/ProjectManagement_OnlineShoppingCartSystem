@@ -1,7 +1,7 @@
 package org.system.product.model;
 
 /**
- * Duosi Zhang Team2
+ * (Duosi Zhang 987000)
  */
 public enum ProductProcessStatus {
 

@@ -3,7 +3,7 @@ package org.system.product.model;
 import java.util.List;
 
 /**
- * Duosi Zhang Team2
+ * (Duosi Zhang 987000)
  */
 public class ProductListContainer {
 

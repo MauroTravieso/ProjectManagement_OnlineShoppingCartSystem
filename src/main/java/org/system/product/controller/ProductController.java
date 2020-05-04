@@ -15,7 +15,7 @@ import java.security.Principal;
 import java.util.List;
 
 /**
- * Duosi Zhang Team2
+ * (Duosi Zhang 987000)
  */
 @Controller
 public class ProductController {

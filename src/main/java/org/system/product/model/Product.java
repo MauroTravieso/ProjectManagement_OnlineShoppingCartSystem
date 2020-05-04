@@ -7,7 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
- * Duosi Zhang Team2
+ * (Duosi Zhang 987000)
  */
 @Data
 @Entity
