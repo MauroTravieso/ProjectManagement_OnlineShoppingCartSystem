@@ -20,6 +20,9 @@ public class CartServiceImpl implements CartService{
     CartRepository cartRepository;
 
     @Autowired
+    LineRepository lineRepository;
+
+    @Autowired
     LineService lineService;
 
     @Autowired

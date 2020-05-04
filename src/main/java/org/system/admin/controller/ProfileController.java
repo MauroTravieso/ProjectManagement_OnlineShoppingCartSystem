@@ -9,6 +9,7 @@ import org.system.permission.service.PermissionService;
 import org.system.task.service.TaskService;
 import org.system.admin.service.UserService;
 
+import javax.servlet.http.HttpSession;
 import java.security.Principal;
 
 @Controller
@@ -24,11 +25,11 @@ public class ProfileController {
     private PermissionService permissionService;
 
     @GetMapping("/profile")
-    public String showProfilePage(Model model, Principal principal) {
+    public String showProfilePage(Model model, Principal principal, HttpSession session) {
 
         String email = principal.getName();
         User user = userService.findOne(email);
-
+        session.setAttribute("email",email);
         // Using the model to pass the List<Task> to the view
         model.addAttribute("name", user.getName());
         model.addAttribute("tasks", taskService.findUserTask(user));

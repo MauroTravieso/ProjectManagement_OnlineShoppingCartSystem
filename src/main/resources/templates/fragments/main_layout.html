@@ -9,6 +9,9 @@
                         th:href="@{/css/materia/bootstrap.min.css}">
     <script type="text/css" th:src="@{webjars/jquery/jquery.min.js}"></script>
     <script type="text/css" th:src="@{webjars/bootstrap/bootstrap.min.js}"></script>
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
 </head>
 <body>
     <div th:replace="fragments/header::header"></div>
@@ -16,5 +19,7 @@
     <div layout:fragment="content"></div>
 
     <div th:replace="fragments/footer::footer"></div>
+
+
 </body>
 </html>

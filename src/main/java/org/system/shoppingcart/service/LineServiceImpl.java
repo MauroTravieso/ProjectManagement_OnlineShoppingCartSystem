@@ -16,6 +16,7 @@ public class LineServiceImpl implements LineService {
 
     @Override
     public Line getLineById(Long id) {
+        System.out.println("*************** line id = " + id);
         return lineRepository.findById(id).get();
     }
 

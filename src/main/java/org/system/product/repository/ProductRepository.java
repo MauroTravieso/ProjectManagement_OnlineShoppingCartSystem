@@ -7,7 +7,7 @@ import org.system.product.model.Product;
 
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<Product, String> {
+public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> findByTitleLike(String title);
 
     Page<Product> findByTitleLike(String title, Pageable pageable);

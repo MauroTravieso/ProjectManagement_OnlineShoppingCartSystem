@@ -20,10 +20,9 @@ public class Cart {
     private List<Line> lines;
 
     public void addLine(Line line) {
-        if (lines == null) {
+        if (lines == null)
             lines = new ArrayList<>();
-            lines.add(line);
-        }
+        lines.add(line);
     }
 
     public Double getTotal() {

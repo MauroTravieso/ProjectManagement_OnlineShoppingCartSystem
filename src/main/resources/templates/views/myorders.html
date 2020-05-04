@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns:layout="http://www.w3.org/1999/xhtml"
+      +
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>My Orders</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div layout:fragment="content" class="container mt-4">
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Total price</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order: ${orders}">
+            <td scope="row" th:text="${order.id}">1</td>
+            <td th:text="${order.getLocalDateTime()}">Mark</td>
+            <td th:text="${order.getTotal()}">Otto</td>
+            <td>
+                    <span th:hidden="${order.status}!=1" class="text-warning" style="font-size: 30px;vertical-align: middle;">&bull;</span>
+                    <span th:hidden="${order.status}!=2" class="text-primary" style="font-size: 30px;vertical-align: middle;">&bull;</span>
+                    <span th:hidden="${order.status}!=3" class="text-success" style="font-size: 30px;vertical-align: middle;">&bull;</span>
+                    <span th:hidden="${order.status}!=4" class="text-danger" style="font-size: 30px;vertical-align: middle;">&bull;</span>
+                    <span th:text="${order.getStatus()}" ></span>
+            </td>
+            <td>
+                <a th:title="details" class="btn btn-primary"  th:href="@{/user/orders/{id}(id=${order.id})}">
+                    <i class="material-icons" style="vertical-align: sub;">
+                        arrow_forward
+                    </i>
+                </a>
+                <a  th:title="cancel" class="btn btn-danger" th:href="@{/user/orders/cancelform/{id}(id=${order.id})}" th:if="${status == 1}">
+                    <i class="material-icons" style="vertical-align: sub;">
+                        cancel
+                    </i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

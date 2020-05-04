@@ -29,7 +29,7 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public Product findProductById(String id) {
+    public Product findProductById(Integer id) {
         return productRepository.findById(id).orElseThrow(() -> null);
     }
 

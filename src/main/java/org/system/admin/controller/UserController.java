@@ -9,6 +9,8 @@ import org.system.admin.model.UserStatus;
 import org.system.admin.service.UserService;
 import org.system.email.EmailService;
 //import org.system.email.GMailAuthenticator;
+import org.system.payment.model.Order;
+import org.system.payment.service.OrderService;
 import org.system.permission.model.Permission;
 import org.system.role.service.RoleService;
 import org.system.task.model.Task;
@@ -44,6 +46,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    OrderService orderService;
     //private User userApproved = null;
 
 //    @Autowired
@@ -165,5 +169,11 @@ public class UserController {
 //        transport.close();
 //
 //    }
+
+    @GetMapping("/user/orders/{id}")
+    public String orderDetails(@PathVariable Long id,Model model){
+        model.addAttribute("order",orderService.getOrderById(id));
+        return "views/details";
+    }
 
 }
