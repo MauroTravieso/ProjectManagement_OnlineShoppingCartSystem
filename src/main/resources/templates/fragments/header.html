@@ -24,11 +24,20 @@
                 <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
                     <a class="nav-link" href="/users">Users</a>
                 </li>
-                <li class="nav-item active" sec:authorize="hasRole('ROLE_USER')">
+                <!--<li class="nav-item active" sec:authorize="hasRole('ROLE_USER')">
                     <a class="nav-link" href="/home">Home Product</a>
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="/">About</a>
+                </li>
+
+                <li class="nav-item  my-2 my-lg-0" sec:authorize="hasRole('ROLE_USER')">
+                    <a class="btn btn-success" th:href="@{/user/cart}" th:title="Cart">
+                        <i class="material-icons">
+                            shopping_cart
+                        </i>
+                        <span class="badge badge-light" th:text="${line_number}"></span>
+                    </a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">

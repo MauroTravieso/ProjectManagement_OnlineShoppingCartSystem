@@ -10,6 +10,7 @@ public interface UserRepository extends JpaRepository<User, String> {
 
     @Query("select u from User u where u.firstName like %?1% or u.lastName like %?1%")
     List<User> findByNameLike(String name);
+    User findUserByEmail(String email);
 
     //@Query("update User u SET u.firstName='Mauro' WHERE u.email=:email")
     //void approveUser(String email);

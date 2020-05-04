@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Order confirmation</title>
+    <script>
+        function printDiv(divId) {
+            printDivCSS = new String ('<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">')
+            window.frames["print_frame"].document.body.innerHTML=printDivCSS + document.getElementById(divId).innerHTML;
+            window.frames["print_frame"].window.focus();
+            window.frames["print_frame"].window.print();
+        }
+    </script>
+</head>
+<body>
+<div layout:fragment="content" class="container mt-4">
+
+    <div class="jumbotron text-xs-center">
+        <h1 class="display-3">Thank You!</h1>
+        <p class="lead"><strong>Please print your order</strong>.
+            <a href="javascript:printDiv('printed')" id="print"><img th:src="@{/img/pdf.png}" height="50" width="70"></a>
+        </p>
+        <hr>
+        <div id="printed">
+            <p><b class="mr-2">Id:</b><span th:text="${order.id}">1234</span></p>
+            <p><b class="mr-2">Date:</b><span th:text="${order.localDateTime}">1234</span></p>
+            <p><b>Product(s):</b></p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">title</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="line : ${order.lines}">
+                    <th scope="row" th:text="${line.product.id}">1</th>
+                    <td th:text="${line.product.title}">product1</td>
+                    <td th:text="${line.quantity}">2</td>
+                    <td th:text="'$'+${line.getPrice()}">223$</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <h4 th:text="'$'+${order.getTotal()}">Total: <span>120$</span></h4>
+        </div>
+
+        <p class="lead">
+            <a class="btn btn-primary btn-sm" th:href="@{/}" role="button">Continue to homepage</a>
+        </p>
+    </div>
+    <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+
+
+</div>
+
+
+</body>
+</html>

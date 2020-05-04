@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns:layout="http://www.w3.org/1999/xhtml"+
+      xmlns:th="http://www.thymeleaf.org">-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <!-- our css -->
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <!--        font awesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script th:src="@{/js/cart.js}"></script>
+
+</head>
+<body>
+<div layout:fragment="content" class="container mySpace">
+
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+        <tr>
+            <th style="width:50%">Product</th>
+            <th style="width:10%">Price</th>
+            <th style="width:8%">Quantity</th>
+            <th style="width:10%"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="line: ${cart.lines}">
+            <td data-th="Product">
+                <div class="row">
+                    <div class="col-sm-2 hidden-xs"><img th:src="@{/{id}.png(id=${line.product.id})}" width="100px"
+                                                         height="100px" alt="..." class="img-responsive"/></div>
+                    <div class="col-sm-8 offset-sm-1">
+                        <h4 class="nomargin" th:text="${line.product.title}"></h4>
+                        <p th:text="${line.product.description}"></p>
+                    </div>
+                </div>
+            </td>
+            <td data-th="Price" th:text="${line.getPrice()}"></td>
+
+            <td data-th="Quantity">
+                <input type="number" min="1" class="form-control text-center quantityChange" th:value="${line.quantity}"
+                       th:title="${line.id}" id="up" onClick="setTimeout(function(){window.location.reload()},400);">
+            </td>
+
+            <td class="actions" data-th="">
+                <form th:action="@{/user/cart/delete/{id}(id=${line.id})}" method="post">
+                    <input type="hidden" th:value="${line.id}" name="line_id">
+                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                </form>
+            </td>
+            -
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td><a th:href="@{/home}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+            </td>
+            <td colspan="1" class="hidden-xs"></td>
+            <td class="hidden-xs text-center"><strong th:text="'$'+${cart.getTotal()}"></strong></td>
+            <td><a th:href="@{/cart/checkout}"
+                   th:class="${cart.getTotal()}==0.0?'btn inactiveLink btn-block btn-light':'btn btn-success btn-block'">Checkout
+                <i class="fa fa-angle-right"></i></a></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+</body>
+</html>

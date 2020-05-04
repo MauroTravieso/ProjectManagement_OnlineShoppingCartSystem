@@ -56,7 +56,6 @@ public class UserService {
         else
             user.setQuota(0.0);
 
-        //
         if (role.getName().equals("USER"))
             user.setCart(new Cart());
 
@@ -118,5 +117,13 @@ public class UserService {
 
     public void save(User user) {
         userRepository.save(user);
+    }
+
+    public User getUserByEmail(String email){
+        return userRepository.findUserByEmail(email);
+    }
+
+    public int countLinesNumber(String email){
+        return getUserByEmail(email).getCart().getLines().size();
     }
 }

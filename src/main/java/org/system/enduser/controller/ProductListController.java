@@ -29,8 +29,8 @@ public class ProductListController {
     }
 
     @GetMapping("/product/detail")
-    public String productDetail(Model model, @RequestParam String productid) {
-        if (!productid.isEmpty()) {
+    public String productDetail(Model model, @RequestParam Integer productid) {
+        if (productid != null) {
             Product product = productService.findProductById(productid);
             model.addAttribute("product", productService.findProductById(productid));
         }
