@@ -25,9 +25,9 @@
 
         <!-- name -->
         <div class="form-group">
-            <label for="name" class="form-control-label">Name</label>
-            <input type="text" class="form-control" th:field="*{name}" id="name" readonly="" />
-            <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            <label for="firstName" class="form-control-label">First Name</label>
+            <input type="text" class="form-control" th:field="*{firstName}" id="firstName" readonly="" />
+            <div class="text text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
         </div>
 
         <!-- lastname -->
@@ -44,20 +44,7 @@
             <div class="text text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
         </div>
 
-        <!--        &lt;!&ndash; role &ndash;&gt;-->
-        <!--        <div class="form-group">-->
-        <!--            <label for="roles" class="form-control-label">Role</label>-->
-
-        <!--            <select id="roles" name="roles" class="custom-select" >-->
-        <!--                <option th:each="roles : ${roleList}" th:value="${roles.name}" th:attr="choiceid=${roles.name}" th:text="${roles.name}">-->
-        <!--                </option>-->
-        <!--            </select>-->
-
-        <!--            <div class="text text-danger" th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></div>-->
-        <!--        </div>-->
-
-
-        <input type="submit" value="Confirm" class="btn btn-danger" />
+          <input type="submit" value="Confirm" class="btn btn-danger" />
 
     </form>
 </div>

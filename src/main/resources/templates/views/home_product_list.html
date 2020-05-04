@@ -1,4 +1,4 @@
-
+<!--Mingyu Zhou(986674)-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
@@ -6,6 +6,11 @@
 <head>
     <title>Home</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/product_list.css}">
+    <script th:inline="javascript">
+        function productDetail(product) {
+            window.location.href="/product/detail?productid="+product.id;
+        }
+    </script>
 </head>
 <body>
 <div layout:fragment="content" class="container mySpace">
@@ -22,13 +27,18 @@
 
     <!--card-->
     <div class="product_list">
-        <div th:each="product:${datas}" class="card mb-3 product_card" >
-            <img style="height: 250px; width: 250px; display: block;" th:src="${product.image}" alt="Product image">
+        <div th:each="product:${datas}"
+             th:onclick="productDetail([[${product}]]);"
+             class="card mb-3 product_card">
+            <img style="height: 250px; width: 250px; display: block;"
+                 th:src="${product.image}" alt="Product image"
+                 onerror="this.src='/image/product-default.jpg'"/>
             <div class="card-body">
                 <h5 class="card-title product_title" th:text="${product.title}"></h5>
                 <div class="product_bottom">
                     <h6 class="card-subtitle product_price" th:text="'$'+${product.price}"></h6>
                     <a th:href="@{/cart/add/{id}(id=${product.id})}"><button type="button" class="btn btn-primary">ADD TO CART</button></a>
+
                 </div>
 
             </div>
@@ -41,13 +51,5 @@
 
 </div>
 
-<!--
-<div layout:fragment="content" class="container mySpace">
-
-
-
-
-</div>
--->
 </body>
 </html>

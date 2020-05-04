@@ -59,6 +59,7 @@ public class UserService {
         if (role.getName().equals("USER"))
             user.setCart(new Cart());
 
+
         System.out.println("Quota: "+user.getQuota());
 
         userRepository.save(user);
@@ -102,13 +103,17 @@ public class UserService {
         return userRepository.findAll();
     }
 
+//    public List<User> findByName(String name) {
+//        return userRepository.findByNameLike("%"+name+"%");
+//    }
+
     public List<User> findByName(String name) {
-        return userRepository.findByNameLike("%"+name+"%");
+        return userRepository.findByNameLike(name);
     }
 
-    public void approveUser(String email) {
-        userRepository.approveUser(email);
-    }
+//    public void approveUser(String email) {
+//        userRepository.approveUser(email);
+//    }
 
     public void save(User user) {
         userRepository.save(user);

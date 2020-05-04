@@ -25,12 +25,12 @@ public class IndexController {
     private PermissionService permissionService;
 
 
-    @GetMapping("/")
-    public String showIndexPage() {
-
-        return "index";
-
-    }
+//    @GetMapping("/")
+//    public String showIndexPage() {
+//
+//        return "index";
+//
+//    }
 
 //    @ModelAttribute("roleList")
 //    public List<Role> getRoles(Model model) {

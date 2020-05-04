@@ -1,7 +1,7 @@
 <header th:fragment="header">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Online Shopping Cart</a>
+        <a class="navbar-brand" href="/">Online Shopping Cart</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,9 +24,9 @@
                 <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
                     <a class="nav-link" href="/users">Users</a>
                 </li>
-                <li class="nav-item active">
+                <!--<li class="nav-item active" sec:authorize="hasRole('ROLE_USER')">
                     <a class="nav-link" href="/home">Home Product</a>
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="/">About</a>
                 </li>

@@ -31,7 +31,7 @@ public class ProfileController {
         User user = userService.findOne(email);
         session.setAttribute("email",email);
         // Using the model to pass the List<Task> to the view
-        model.addAttribute("name", user.getName());
+        model.addAttribute("name", user.getFirstName() +" "+ user.getLastName());
         model.addAttribute("tasks", taskService.findUserTask(user));
        // model.addAttribute("permissions", permissionService.findUserPermission(user));
         model.addAttribute("permissions", permissionService.findUser());

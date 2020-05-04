@@ -14,7 +14,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.sql.rowset.Predicate;
 
-
+//Mingyu Zhou(986674)
 @Service
 public class ProductListService {
     @Autowired

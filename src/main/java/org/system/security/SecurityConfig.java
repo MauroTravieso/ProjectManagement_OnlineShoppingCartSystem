@@ -59,8 +59,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        .defaultSuccessUrl("/profile").and().logout().logoutSuccessUrl("/login");
 
         http.authorizeRequests()
+
                 .antMatchers("/register", "/", "/about", "/", "/login", "/css/**", "/webjars/**", "/user","/cart","/user/cart")
                 .permitAll()
+
                 .antMatchers("/profile").hasAnyRole("USER,ADMIN,VENDOR,CUSTOMER,EMPLOYEE")
                 .antMatchers("/users","/addTask").hasRole("ADMIN")
                 .and().formLogin().loginPage("/login").permitAll()

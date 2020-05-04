@@ -130,7 +130,6 @@
             <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
-
         <!--  GMail dependencies  -->
         <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
         <dependency>
@@ -151,7 +150,22 @@
             <version>2.1.7.RELEASE</version>
         </dependency>
 
-        <!--  GMail dependencies  -->
+        <!-- GMail dependencies  -->
+
+        <!-- Jasper Reports-->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.9.0</version>
+        </dependency>
+
+        <!-- JasperReports -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.9.0</version>
+        </dependency>
+        <!-- JasperReports -->
 
     </dependencies>
 
@@ -160,6 +174,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
         </plugins>
     </build>
