@@ -96,7 +96,8 @@ public class User {
     }
 
 
-    public User(String email, String firstName, String lastName, String phoneNumber, LocalDate accountCreatedDate, String password, List<Role> role, UserStatus status, Double quota) {
+//    public User(String email, String firstName, String lastName, String phoneNumber, LocalDate accountCreatedDate, String password, List<Role> role, UserStatus status, Double quota, LocalDate statusChangedDate, Cart cart) {
+      public User(String email, String firstName, String lastName, String phoneNumber, LocalDate accountCreatedDate, String password, List<Role> role, UserStatus status, Double quota) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -106,6 +107,8 @@ public class User {
         this.roles = role;
         this.status = status;
         this.quota = quota;
+//        this.statusChangedDate =statusChangedDate;
+//        this.cart = cart;
     }
 
 

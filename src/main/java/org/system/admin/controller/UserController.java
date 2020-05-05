@@ -97,6 +97,21 @@ public class UserController {
         //return "redirect:/sendMail";
     }
 
+    @PostMapping("/update")
+    public String updateUser(String email, @ModelAttribute("user") User newUser) {
+        System.out.println("*****************************");
+        User user = userService.findOne(email);
+        user.setStatusChangedDate(LocalDate.now());
+        user.setFirstName(newUser.getFirstName());
+        user.setLastName(newUser.getLastName());
+        user.setPhoneNumber(newUser.getPhoneNumber());
+
+        System.out.println("********************* New LastName ***************" + user.getLastName());
+        userService.save(user);
+        return "views/updateSuccess";
+        //return "redirect:/sendMail";
+    }
+
     @GetMapping("/reject")
     public String rejectUser(String email, Model model) {
         System.out.println("*****************************");

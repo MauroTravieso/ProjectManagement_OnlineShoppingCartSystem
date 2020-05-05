@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.system.admin.model.UserStatus;
 import org.system.role.model.Role;
+import org.system.shoppingcart.model.Cart;
 import org.system.task.service.TaskService;
 import org.system.admin.service.UserService;
 import org.system.task.model.Task;
@@ -35,15 +36,22 @@ public class OnlineShoppingCartSystemTests {
 			List<Role> rolesUser = new ArrayList<>();
 			rolesUser.add(new Role("USER"));
 			LocalDate accountCreatedDate = LocalDate.now();
+			LocalDate statusChangedDate = LocalDate.now();
+			Cart cart = new Cart();
 
+//			User newUser = new User("testUser@mail.com", "testUser", "testUser", "0123456789",accountCreatedDate,"123456", rolesUser, UserStatus.PENDING,0.0, statusChangedDate, cart );
 			User newUser = new User("testUser@mail.com", "testUser", "testUser", "0123456789",accountCreatedDate,"123456", rolesUser, UserStatus.PENDING,0.0);
+
 			userService.createUser(newUser);
 		}
 		{
 			List<Role> rolesAdmin = new ArrayList<>();
 			rolesAdmin.add(new Role("ADMIN"));
 			LocalDate accountCreatedDate = LocalDate.now();
+			LocalDate statusChangedDate = LocalDate.now();
+			Cart cart = new Cart();
 
+//			User newUser = new User("testAdmin@mail.com", "testAdmin", "testAdmin", "0123456789", accountCreatedDate,"123456", rolesAdmin, UserStatus.ACTIVE,0.0, statusChangedDate, cart );
 			User newUser = new User("testAdmin@mail.com", "testAdmin", "testAdmin", "0123456789", accountCreatedDate,"123456", rolesAdmin, UserStatus.ACTIVE,0.0);
 			userService.createUser(newUser);
 		}

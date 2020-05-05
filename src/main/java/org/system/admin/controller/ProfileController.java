@@ -30,9 +30,24 @@ public class ProfileController {
         String email = principal.getName();
         User user = userService.findOne(email);
         session.setAttribute("email",email);
+
         // Using the model to pass the List<Task> to the view
+        model.addAttribute("user", user);
+        model.addAttribute("role", user.getRoles().get(0));
         model.addAttribute("name", user.getFirstName() +" "+ user.getLastName());
         model.addAttribute("tasks", taskService.findUserTask(user));
+
+
+        model.addAttribute("email", user.getEmail());
+        System.out.println("************" + user.getEmail());
+        model.addAttribute("firstName", user.getFirstName());
+        System.out.println("************" + user.getFirstName());
+        model.addAttribute("lastName", user.getLastName());
+        System.out.println("************" + user.getLastName());
+        model.addAttribute("phoneNumber", user.getPhoneNumber());
+        System.out.println("************" + user.getPhoneNumber());
+
+
        // model.addAttribute("permissions", permissionService.findUserPermission(user));
         model.addAttribute("permissions", permissionService.findUser());
 

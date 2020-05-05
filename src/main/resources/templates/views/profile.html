@@ -9,7 +9,42 @@
 
         <div layout:fragment="content" class="container mySpace">
             <h2><strong th:text="${name}"></strong><strong>'s Profile</strong></h2>
+            <h4><b>Role: </b><strong th:text="${role}"></strong><strong></strong></h4><br>
+<!---->
+            <form th:action="@{/update}" th:object="${user}" method="post">
+                <div class="form-group">
+                    <label for="email" class="form-control-label">Email</label>
+                    <input type="text" class="form-control" th:field="*{email}" id="email" readonly="" />
+                </div>
 
+                <!-- name -->
+                <div class="form-group">
+                    <label for="firstName" class="form-control-label">First Name</label>
+                    <input type="text" class="form-control" th:field="*{firstName}" id="firstName" name="firstName"/>
+                    <div class="text text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+                </div>
+
+                <!-- lastname -->
+                <div class="form-group">
+                    <label for="lastName" class="form-control-label">Lastname</label>
+                    <input type="text" class="form-control" th:field="*{lastName}" id="lastName" name="lastName" />
+                    <div class="text text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+                </div>
+
+                <!-- phoneNumber -->
+                <div class="form-group">
+                    <label for="phoneNumber" class="form-control-label">Phone Number</label>
+                    <input type="text" class="form-control" th:field="*{phoneNumber}" id="phoneNumber" th:placeholder="nnn-nnn-nnnn" />
+                    <div class="text text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
+                </div>
+
+<!--                <a th:href="@{/update(email=${user.email})}" class="btn btn-outline-info" >Update</a>-->
+                <input type="submit" th:href="@{/update(email=${user.email})}" value="Update Profile" class="btn btn-success" />
+
+            </form>
+<!---->
+            <br>
+            <h2><strong th:text="${name}"></strong><strong>'s Activities </strong></h2>
             <div class="card">
                 <div class="card card-body">
                     <table class="table table-hover">
@@ -30,7 +65,6 @@
                             </tr>
                         </tbody>
                     </table>
-
 
                 </div>
             </div>
