@@ -18,9 +18,9 @@
 <div layout:fragment="content" class="container mt-4">
 
     <div class="jumbotron text-xs-center">
-        <h1 class="display-3">Thank You!</h1>
+        <h2 class="display-3">Thank You!</h2>
         <p class="lead"><strong>Please print your order</strong>.
-            <a href="javascript:printDiv('printed')" id="print"><img th:src="@{/img/pdf.png}" height="50" width="70"></a>
+            <a href="javascript:printDiv('printed')" id="print"><img th:src="@{/img/pdf.png}" height="40" width="60"></a>
         </p>
         <hr>
         <div id="printed">
@@ -47,8 +47,10 @@
             </table>
 
 
-            <h4 th:text="'$'+${order.getTotal()}">Total: <span>120$</span></h4>
+            <b class="mr-1">Total:</b><h4 th:text="'$'+${order.getTotal()}">Total: <span>120$</span></h4>
         </div>
+
+
 
         <p class="lead">
             <a class="btn btn-primary btn-sm" th:href="@{/}" role="button">Continue to homepage</a>

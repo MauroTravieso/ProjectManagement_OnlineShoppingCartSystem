@@ -43,7 +43,7 @@ public class OnlineShoppingCartSystemApplication implements CommandLineRunner {
     private ProductService productService;
 
     public static void main(String[] args) {
-        SpringApplication.run(OnlineShoppingCartSystemApplication.class, args);
+        SpringApplication.  run(OnlineShoppingCartSystemApplication.class, args);
     }
 
     @Override
