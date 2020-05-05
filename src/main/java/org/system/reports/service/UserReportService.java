@@ -8,6 +8,7 @@ import org.springframework.util.ResourceUtils;
 import org.system.admin.model.User;
 import org.system.admin.repository.UserRepository;
 
+import javax.servlet.ServletContext;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -20,7 +21,13 @@ public class UserReportService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    ServletContext servletContext;
+
     public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
+//        String path = servletContext.getRealPath("/");
+//        System.out.println(path);
+
         String path = "/home/mauro/MUM/10A-Project Management/Project/OnlineShoppingCartSystem/";
         List<User> users = userRepository.findAll();
         //load file and compile it

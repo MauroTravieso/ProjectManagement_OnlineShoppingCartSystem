@@ -13,6 +13,7 @@ import org.system.permission.model.Permission;
 import org.system.permission.service.PermissionService;
 import org.system.role.model.Role;
 import org.system.role.service.RoleService;
+import org.system.shoppingcart.model.Cart;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -76,6 +77,11 @@ public class OnlineShoppingCartSystemApplication implements CommandLineRunner {
 
         LocalDate accountCreatedDate = LocalDate.now();
 
+//        LocalDate statusChangedDate = LocalDate.now();
+//
+//        Cart cart = new Cart();
+
+//        User newAdmin = new User("admin@mail.com", "Admin", "Admin", "0123456789", accountCreatedDate, "admin", rolesAdmin, status, 0.0, statusChangedDate, cart);
         User newAdmin = new User("admin@mail.com", "Admin", "Admin", "0123456789", accountCreatedDate, "admin", rolesAdmin, status, 0.0);
         userService.createAdmin(newAdmin);
 
