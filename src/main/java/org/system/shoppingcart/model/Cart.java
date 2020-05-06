@@ -7,6 +7,16 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Cart Model
+ *
+ * Bugs: none known
+ *
+ * @author       Shiraz Shrestha (987052) - Team II APR2020
+ * @version      1.0
+ *
+ */
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -32,6 +42,4 @@ public class Cart {
         }
         return total;
     }
-
-
 }

@@ -10,6 +10,16 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+/**
+ * Address Model
+ *
+ * Bugs: none known
+ *
+ * @author       Shiraz Shrestha (987052) - Team II APR2020
+ * @version      1.0
+ *
+ */
+
 @Entity
 @Data
 @NoArgsConstructor

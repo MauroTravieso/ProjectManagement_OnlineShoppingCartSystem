@@ -8,12 +8,18 @@ import org.system.payment.model.Order;
 
 import java.util.List;
 
+/**
+ * Order Repository
+ *
+ * Bugs: none known
+ *
+ * @author       Shiraz Shrestha (987052) - Team II APR2020
+ * @version      1.0
+ *
+ */
+
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long> {
     @Query("select o from Order o join o.user u where u.email=?1 ")
     List<Order> findByEmail(String email);
-   /* List<Order> findAllByUserOrderByLocalDateTimeDesc(User user);
-    List<Order> findAllByUserAAndStatusEqualsOrderByLocalDateTimeDesc(User user, int status);
-    List<Order> findAllByOrderByLocalDateTimeDesc();
-    List<Order> findAllByStatusEqualsOrderByLocalDateTimeDesc(int status);*/
 }

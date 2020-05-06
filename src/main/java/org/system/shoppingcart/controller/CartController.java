@@ -23,6 +23,16 @@ import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Shopping Cart Controller
+ *
+ * Bugs: none known
+ *
+ * @author       Shiraz Shrestha (987052) - Team II APR2020
+ * @version      1.0
+ *
+ */
+
 @Controller
 public class CartController {
 
