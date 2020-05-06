@@ -29,7 +29,7 @@ public class UserReportService {
 
         //String path1 = "classpath:generateReport\\userReport";
         //String path2="C:\\Users\\vocsi\\Downloads\\ProjectManagement_OnlineShoppingCartSystem-master\\src\\main\\resources\\generateReport\\userReport.pdf";
-        String path = "/home/mauro/MUM/10A-Project Management/Project/OnlineShoppingCartSystem/userReport.pdf";
+        String path = "C:\\Users\\shira\\Desktop\\userReport.pdf";
         List<User> users = userRepository.findAll();
         //load file and compile it
         File file = ResourceUtils.getFile("classpath:reports/userReport.jrxml");

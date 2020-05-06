@@ -34,7 +34,7 @@
         <tr th:each="line: ${cart.lines}">
             <td data-th="Product">
                 <div class="row">
-                    <div class="col-sm-2 hidden-xs"><img th:src="@{/image/product-default.jpg}" width="100px"
+                    <div class="col-sm-2 hidden-xs"><img th:src="${line.getProduct().getImage()}" width="100px"
                                                          height="100px" alt="..." class="img-responsive"/></div>
                     <div class="col-sm-8 offset-sm-1">
                         <h4 class="nomargin" th:text="${line.product.title}"></h4>
