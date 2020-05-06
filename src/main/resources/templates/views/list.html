@@ -14,6 +14,9 @@
                     <input type="text" class="form-control" name="name" placeholder="Search User"/>
                     <input type="submit" value="Search" class="btn btn-primary"/>
                 </div>
+                <div class="form-group mb-2">
+                    <a th:href="@{'/userReport'}" style="float: right;"><img src="../../image/pdf.png" style="width: 40px;"></a>
+                </div>
             </form>
 
             <div class="card">
@@ -28,6 +31,7 @@
                                 <th>Operations</th>
                                 <th>Permissions</th>
                                 <th>Tasks</th>
+                                <th>Orders</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,6 +51,17 @@
                                 <td th:if="${ user.roleName=='EMPLOYEE'}">
                                     <a th:href="@{/addTask(email=${user.email})}"  class="btn btn-outline-warning"  th:if="${user.userStatus=='ACTIVE' }">Assign</a>
                                 </td>
+
+                                <td th:if="${ user.roleName=='VENDOR' || user.roleName=='ADMIN'}">
+
+
+<!--                                <div class="form-group mb-2">-->
+<!--                                    <a th:href="@{/orderReport(email=${user.email})}"  class="btn btn-outline-warning"  th:if="${user.userStatus=='ACTIVE' }">Report</a>-->
+
+<!--&lt;!&ndash;                                    <a th:href="@{'/orderReport'}" style="float: right;"><img src="../../image/pdf.png" style="width: 40px;"></a>&ndash;&gt;-->
+<!--                                </div>-->
+                                </td>
+
                             </tr>
                         </tbody>
                     </table>

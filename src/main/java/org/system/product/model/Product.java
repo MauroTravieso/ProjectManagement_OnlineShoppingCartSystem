@@ -26,7 +26,7 @@ public class Product {
     private String description;
 
     @NotNull(message = "Please enter price")
-    private double price;
+    private Double price;
 
     private ProductStatus product_status = ProductStatus.OUT_OF_STOCK;
 

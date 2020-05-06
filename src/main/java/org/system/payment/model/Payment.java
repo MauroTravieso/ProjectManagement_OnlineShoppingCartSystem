@@ -24,4 +24,10 @@ public class Payment {
 
     @Size(min=16,max=16, message = "{Size.cardNumber}")
     private String cardNumber;
+
+    @Override
+    public String toString(){
+        return name;
+    }
+
 }

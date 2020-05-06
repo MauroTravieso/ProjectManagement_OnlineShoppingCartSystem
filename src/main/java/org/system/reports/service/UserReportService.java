@@ -9,6 +9,7 @@ import org.system.admin.model.User;
 import org.system.admin.repository.UserRepository;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -24,11 +25,11 @@ public class UserReportService {
     @Autowired
     ServletContext servletContext;
 
-    public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
-//        String path = servletContext.getRealPath("/");
-//        System.out.println(path);
+    public String exportReport() throws FileNotFoundException, JRException {
 
-        String path = "/home/mauro/MUM/10A-Project Management/Project/OnlineShoppingCartSystem/";
+        //String path1 = "classpath:generateReport\\userReport";
+        //String path2="C:\\Users\\vocsi\\Downloads\\ProjectManagement_OnlineShoppingCartSystem-master\\src\\main\\resources\\generateReport\\userReport.pdf";
+        String path = "/home/mauro/MUM/10A-Project Management/Project/OnlineShoppingCartSystem/userReport.pdf";
         List<User> users = userRepository.findAll();
         //load file and compile it
         File file = ResourceUtils.getFile("classpath:reports/userReport.jrxml");
@@ -37,12 +38,8 @@ public class UserReportService {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Team II");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-        if (reportFormat.equalsIgnoreCase("html")) {
-            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "users.html");
-        }
-        if (reportFormat.equalsIgnoreCase("pdf")) {
-            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "users.pdf");
-        }
+        JasperExportManager.exportReportToPdfFile(jasperPrint, path);
+        // }
 
         return "report generated in path : " + path;
     }

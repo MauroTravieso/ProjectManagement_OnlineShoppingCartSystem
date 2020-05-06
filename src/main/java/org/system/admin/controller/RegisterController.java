@@ -17,6 +17,16 @@ import org.system.role.model.Role;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ * Application Register Controller.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Mauro Travieso (986965)
+ * @version      1.0
+ *
+ */
+
 @Controller
 public class RegisterController {
 

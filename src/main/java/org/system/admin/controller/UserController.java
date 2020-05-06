@@ -40,6 +40,17 @@ import java.util.Map;
 //import freemarker.template.Configuration;
 ////
 
+
+/**
+ * Application User Controller.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Mauro Travieso (986965)
+ * @version      1.0
+ *
+ */
+
 @Controller
 public class UserController {
 

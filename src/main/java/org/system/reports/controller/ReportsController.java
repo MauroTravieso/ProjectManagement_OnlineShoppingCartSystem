@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.system.admin.model.User;
 import org.system.admin.repository.UserRepository;
+import org.system.reports.service.OrderReportService;
+import org.system.reports.service.ProductReportService;
 import org.system.reports.service.UserReportService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.FileNotFoundException;
 import java.util.List;
 
@@ -18,9 +21,36 @@ public class ReportsController {
     @Autowired
     private UserReportService userReportService;
 
-    @GetMapping("/report/{format}")
-    public String generateReport(@PathVariable String format) throws FileNotFoundException, JRException {
-        return userReportService.exportReport(format);
+    @Autowired
+    private ProductReportService productReportService;
+
+    @Autowired
+    private OrderReportService orderReportService;
+
+    @GetMapping("/userReport")
+    public String userReport(HttpServletRequest request) throws FileNotFoundException, JRException {
+        return userReportService.exportReport();
     }
+
+    @GetMapping("/productReport")
+    public String productReport(HttpServletRequest request) throws FileNotFoundException, JRException {
+        return productReportService.exportReport();
+    }
+
+    @GetMapping("/productByVendorReport")
+    public String productByVendorReport(HttpServletRequest request) throws FileNotFoundException, JRException {
+        return productReportService.exportReportByVendor();
+    }
+
+    @GetMapping("/orderReport")
+    public String orderReport(HttpServletRequest request) throws FileNotFoundException, JRException {
+        return orderReportService.exportReport();
+    }
+
+    @GetMapping("/orderReport/{email}")
+    public String orderReport(@PathVariable String email) throws FileNotFoundException, JRException {
+        return orderReportService.exportReport(email);
+    }
+
 
 }
