@@ -15,6 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+/**
+ * Reports Controller.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Jean Octavius ()
+ * @version      1.0
+ *
+ */
+
 @Controller
 public class ReportsController {
 

@@ -16,6 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Application User Service.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Mauro Travieso (986965)
+ * @version      1.0
+ *
+ */
+
 @Service
 public class UserService {
 
@@ -25,11 +35,6 @@ public class UserService {
     public void createUser(User user) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
-//        Role userRole = new Role("USER");
-//        //Role userRole = roleRepository.findById(user.getRoleName());
-//        List<Role> roles = new ArrayList<>();
-//        roles.add(userRole);
-//        user.setRoles(roles);
 
         // Account creation date
         LocalDate accountCreatedDate = LocalDate.now();
@@ -103,17 +108,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
-//    public List<User> findByName(String name) {
-//        return userRepository.findByNameLike("%"+name+"%");
-//    }
 
     public List<User> findByName(String name) {
         return userRepository.findByNameLike(name);
     }
 
-//    public void approveUser(String email) {
-//        userRepository.approveUser(email);
-//    }
 
     public void save(User user) {
         userRepository.save(user);

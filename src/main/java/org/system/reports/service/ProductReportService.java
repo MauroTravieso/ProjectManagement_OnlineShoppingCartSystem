@@ -17,6 +17,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Reports Controller.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Jean Octavius ()
+ * @version      1.0
+ *
+ */
 @Service
 public class ProductReportService {
 
@@ -30,7 +39,7 @@ public class ProductReportService {
 
         //String path1 = "classpath:generateReport\\userReport";
         //String path2="C:\\Users\\vocsi\\Downloads\\ProjectManagement_OnlineShoppingCartSystem-master\\src\\main\\resources\\generateReport\\userReport.pdf";
-        String path = "C:\\Users\\shira\\Desktop\\productReport.pdf";
+        String path = "/home/mauro/MUM/10A-Project Management/Project/OnlineShoppingCartSystem/productReport.pdf";
         List<Product> products = productRepository.findAll();
 
         //load file and compile it

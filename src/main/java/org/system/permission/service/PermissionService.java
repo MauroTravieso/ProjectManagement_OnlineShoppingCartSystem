@@ -9,6 +9,16 @@ import org.system.task.model.Task;
 
 import java.util.List;
 
+/**
+ * Application Permission Service.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Mauro Travieso (986965)
+ * @version      1.0
+ *
+ */
+
 @Service
 public class PermissionService {
 
@@ -23,13 +33,4 @@ public class PermissionService {
 
     public List<Permission> findUser() {return permissionRepository.findUser(); }
 
-    // Return the list of permissions assigned to a particular user
-//    public List<Permission> findUserPermission(User user) {
-//        return permissionRepository.findByUser(user);
-//    }
-
-    //
-//    public List<Permission> findPermissionsByEmail(String email){
-//        return permissionRepository.findPermissionsByEmail(email);
-//    }
 }

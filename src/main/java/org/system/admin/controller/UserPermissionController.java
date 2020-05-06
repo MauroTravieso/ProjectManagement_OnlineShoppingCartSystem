@@ -38,11 +38,6 @@ public class UserPermissionController {
     @Autowired
     private PermissionService permissionService;
 
-    //private User userApproved = null;
-
-//    @Autowired
-//    EmailService emailService;
-
     @GetMapping("/approvePermission")
     public String approveUserPermission(String email, Model model) {
         System.out.println("*****************************");
@@ -51,12 +46,8 @@ public class UserPermissionController {
         return "views/approveUserPermission";
     }
 
-    //**//
     @ModelAttribute("permissionList")
     public List<Permission> getPermissions(String email, Model model) {
-//        System.out.println("***************************" + email);
-//        List<Permission> permissionList = permissionService.findUser();
-//        model.addAttribute("permissionList", permissionList);
         return permissionService.findUser();
     }
 
@@ -76,13 +67,9 @@ public class UserPermissionController {
         permissions.add(userPermission2);
         user.setPermissions(permissions);
 
-        //userService.approveUser(user.getEmail());
         userService.save(user);
-        //emailService.sendPendingAcceptanceEmail(user);
 
-        //userApproved=user;
         return "views/list";
-        //return "redirect:/sendMail";
     }
 
     @GetMapping("/rejectPermission")
@@ -99,7 +86,6 @@ public class UserPermissionController {
         User user = userService.findOne(email);
         //user.setStatus(UserStatus.REJECTED);
         user.setStatusChangedDate(LocalDate.now());
-        //userService.approveUser(user.getEmail());
 
         Permission userPermission0 = new Permission("NO_ACCESS_REPORT");
         Permission userPermission1 = new Permission("NO_UPLOAD_PRODUCT");

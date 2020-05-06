@@ -36,33 +36,14 @@ public class RegisterController {
     @Autowired
     private RoleService roleService;
 
-//    @Autowired
-//    private PermissionService permissionService;
-
-//    @GetMapping("/register")
-//    public String registerForm(Model model) {
-//
-//        model.addAttribute("user", new User());
-//        return "views/registerForm";
-//
-//    }
-
-//    @GetMapping(value = "/register")
-//    public String registration(@ModelAttribute("user") User user) {
-//        return "views/registerForm";
-//    }
-
     @GetMapping(value = "/register")
     public String registration(@ModelAttribute("user") User user, Model model) {
-//        System.out.println("RegisterController ******ExceptADMIN*********");
-//        model.addAttribute("exceptADMIN","ADMIN");
         return "views/registerForm";
     }
 
     @ModelAttribute("roleList")
     public List<Role> getRoles(Model model) {
 
-        //return roleService.findAll();
         return roleService.findUser();
     }
 
@@ -80,16 +61,8 @@ public class RegisterController {
             return "views/registerForm";
         }
 
-//        String role = user.getRoles().get(0).toString();
-//        System.out.println(role);
-//
-//        System.out.println("1");
-
-//        System.out.println("RegisterController ******ExceptADMIN*********");
-//        model.addAttribute("exceptADMIN","ADMIN");
 
         if (!user.getPassword().equals(user.getRetypePassword())) {
-            //model.addAttribute("retypePassword","The passwords don't match!!!");
             System.out.println("**********************");
             bindingResult.rejectValue("retypePassword", "Retype.password",
                     "The passwords don't match!!!");
