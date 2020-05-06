@@ -15,6 +15,16 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * OrderService Implementation
+ *
+ * Bugs: none known
+ *
+ * @author       Shiraz Shrestha (987052) - Team II APR2020
+ * @version      1.0
+ *
+ */
+
 @Service
 @Transactional
 public class OrderServiceImpl implements OrderService {
@@ -44,15 +54,6 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findById(id).get();
     }
 
-    /*@Override
-    public List<Order> findAllByUser(User user) {
-        return orderRepository.findAllByUserOrderByLocalDateTimeDesc(user);
-    }*/
-
-    /*@Override
-    public List<Order> findAllByUserAndStatusEquals(User user, int status) {
-        return this.orderRepository.findAllByUserAAndStatusEqualsOrderByLocalDateTimeDesc(user, status);
-    }*/
     @Override
     public void save(Order order) {
         this.orderRepository.save(order);
@@ -62,16 +63,6 @@ public class OrderServiceImpl implements OrderService {
     public Order findById(Long id) {
         return orderRepository.findById(id).get();
     }
-
-    /*@Override
-    public List<Order> findAll() {
-        return orderRepository.findAllByOrderByLocalDateTimeDesc();
-    }*/
-
-    /*@Override
-    public List<Order> findAllByStatus(int status) {
-        return orderRepository.findAllByStatusEqualsOrderByLocalDateTimeDesc(status);
-    }*/
 
     @Override
     public void updateStatus(Long orderId, int status) {
@@ -89,7 +80,6 @@ public class OrderServiceImpl implements OrderService {
             newLine.setQuantity(line.getQuantity());
             newLines.add(newLine);
         }
-
         return newLines;
     }
 }

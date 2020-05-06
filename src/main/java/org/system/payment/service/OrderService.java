@@ -7,14 +7,20 @@ import org.system.shoppingcart.model.Line;
 
 import java.util.List;
 
+/**
+ * OrderService Interface
+ *
+ * Bugs: none known
+ *
+ * @author       Shiraz Shrestha (987052) - Team II APR2020
+ * @version      1.0
+ *
+ */
+
 public interface OrderService {
     Order saveOrder(Order order, Long cartId, String email);
     Order getOrderById(Long id);
-    //List<Order> findAllByUser(User user);
-   // List<Order> findAllByUserAndStatusEquals(User user, int status);
     void save(Order order);
     Order findById(Long id);
-    //List<Order> findAll();
-    //List<Order> findAllByStatus(int status);
     void updateStatus(Long orderId, int status);
 }

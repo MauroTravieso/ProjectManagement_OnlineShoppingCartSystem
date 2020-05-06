@@ -19,15 +19,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-//@SpringBootApplication
-//public class SocialApplication {
-//
-//	public static void main(String[] args) {
-//		SpringApplication.run(SocialApplication.class, args);
-//	}
-//
-//}
-
 @SpringBootApplication
 public class OnlineShoppingCartSystemApplication implements CommandLineRunner {
 
@@ -109,8 +100,5 @@ public class OnlineShoppingCartSystemApplication implements CommandLineRunner {
         productService.addProduct(p8);
         productService.addProduct(p9);
         productService.addProduct(p10);
-
     }
-
-
 }

@@ -8,8 +8,17 @@ import org.system.shoppingcart.model.Cart;
 import org.system.shoppingcart.model.Line;
 import org.system.shoppingcart.repository.CartRepository;
 import org.system.shoppingcart.repository.LineRepository;
-
 import javax.transaction.Transactional;
+
+/**
+ * CartService Implementation
+ *
+ * Bugs: none known
+ *
+ * @author       Shiraz Shrestha (987052) - Team II APR2020
+ * @version      1.0
+ *
+ */
 
 @Service
 @Transactional
@@ -75,5 +84,4 @@ public class CartServiceImpl implements CartService{
         cart.getLines().get(index).getPrice();
         cartRepository.save(cart);
     }
-
 }

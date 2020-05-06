@@ -3,8 +3,17 @@ package org.system.shoppingcart.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.system.product.model.Product;
-
 import javax.persistence.*;
+
+/**
+ * Line Model
+ *
+ * Bugs: none known
+ *
+ * @author       Shiraz Shrestha (987052) - Team II APR2020
+ * @version      1.0
+ *
+ */
 
 @Entity
 @Data
