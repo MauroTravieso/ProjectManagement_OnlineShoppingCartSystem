@@ -34,36 +34,11 @@ public class IndexController {
     @Autowired
     private PermissionService permissionService;
 
-
-//    @GetMapping("/")
-//    public String showIndexPage() {
-//
-//        return "index";
-//
-//    }
-
-//    @ModelAttribute("roleList")
-//    public List<Role> getRoles(Model model) {
-//        return roleService.findAll();
-//    }
-
     @GetMapping("/login")
     public String showLoginForm() {
 
         return "views/loginForm";
 
     }
-
-//    @PostMapping("/login")
-//    public String showForm(User user) {
-//        System.out.println("************ ******** ********");
-//        UserStatus ue = user.getStatus();
-//        if (ue!=UserStatus.ACTIVE)
-//            return "views/loginForm";
-//        return "views/profile";
-//
-//    }
-
-
 
 }

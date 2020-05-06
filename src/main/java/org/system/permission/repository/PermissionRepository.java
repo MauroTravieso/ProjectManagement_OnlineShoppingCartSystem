@@ -9,20 +9,22 @@ import org.system.task.model.Task;
 
 import java.util.List;
 
+/**
+ * Application Permission Repository.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Mauro Travieso (986965)
+ * @version      1.0
+ *
+ */
 @Repository
 public interface PermissionRepository extends JpaRepository<Permission, String> {
 
-    //@Query("select p from Permission p where p<>'NO_ACCESS_REPORT' or p<>'NO_UPLOAD_PRODUCT' or p<>'NO_UPDATE_PRODUCT'")
-
-//    @Query("delete from Permission WHERE name='NO_ACCESS_REPORT' or name='NO_UPLOAD_PRODUCT' or name='NO_UPDATE_PRODUCT'")
     @Query("select p from Permission p")
 
     List<Permission> findUser();
 
     List<User> findByNameLike(String s);
 
-    //
-    //List<Permission> findByUser(User user);
-
-    //List<Permission> findPermissionsByEmail(String email);
 }
