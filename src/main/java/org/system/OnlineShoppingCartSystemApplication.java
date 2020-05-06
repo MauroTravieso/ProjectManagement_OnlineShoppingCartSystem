@@ -89,16 +89,16 @@ public class OnlineShoppingCartSystemApplication implements CommandLineRunner {
     }
 
     void initProductData() {
-        Product p1 = new Product("Samsung S10", "From korean", 1000.0, "aaa@email.com", "image");
-        Product p2 = new Product("Huawei Mate40", "From China", 1032.0, "aaa@email.com", "image");
-        Product p3 = new Product("iphone 10", "From USA", 1099.0, "aaa@email.com", "image");
-        Product p4 = new Product("LG H10", "From korean", 899.0, "aaa@email.com", "image");
-        Product p5 = new Product("OnePlus 8pro", "From China", 999.0, "aaa@email.com", "image");
-        Product p6 = new Product("T Shirt", "From USA", 30.0, "bbb@email.com", "image");
-        Product p7 = new Product("Pants", "From USA", 40.0, "bbb@email.com", "image");
-        Product p8 = new Product("Rolex watch", "From Swiss", 20000.0, "ccc@email.com", "image");
-        Product p9 = new Product("Bag", "From Swiss", 900.0, "ccc@email.com", "image");
-        Product p10 = new Product("Glass", "From British", 400.0, "ccc@email.com", "image");
+        Product p1 = new Product("Samsung S10", "From korean", 1000.0, "aaa@email.com", "https://cdn.shopify.com/s/files/1/0051/8301/2928/products/samsung-galaxy-s10_1_330x.png?v=1555948756");
+        Product p2 = new Product("Huawei Mate40", "From China", 1032.0, "aaa@email.com", "https://www.searchpng.com/wp-content/uploads/2019/02/HUAWEI-P20-715x856.png");
+        Product p3 = new Product("iphone 10", "From USA", 1099.0, "aaa@email.com", "https://cdn4.iconfinder.com/data/icons/apple-products-2026/512/iPhone_X_home-screen-512.png");
+        Product p4 = new Product("LG H10", "From korean", 899.0, "aaa@email.com", "https://hitmobile.pk/dashboard/prod-pic/KHI-02271/LG-G4-Red-0-A.jpg");
+        Product p5 = new Product("OnePlus 8pro", "From China", 999.0, "aaa@email.com", "https://image01.oneplus.net/ebp/202003/30/1-m00-12-6c-rb8bwl6bkxqanwlpaahnodotaxo639_840_840.png");
+        Product p6 = new Product("T Shirt", "From USA", 30.0, "bbb@email.com", "https://cdn2.bigcommerce.com/n-biq04i/lk0gwzb/products/1645/images/1987/ORANGE__95465.1411339606.1280.1280.jpg?c=2");
+        Product p7 = new Product("Pants", "From USA", 40.0, "bbb@email.com", "https://images.wrangler.com/is/image/Wrangler/70SYWBA-HERO?$585x585$");
+        Product p8 = new Product("Rolex watch", "From Swiss", 20000.0, "ccc@email.com", "https://www.diamondsourcenyc.com/wp-content/uploads/2014/11/m116610lv-0002.jpg");
+        Product p9 = new Product("Bag", "From Swiss", 900.0, "ccc@email.com", "https://cdn.shopify.com/s/files/1/0757/9123/products/linjer-tulip-bag-black-red-3-back_1440x.jpg?v=1547262780");
+        Product p10 = new Product("Glass", "From British", 400.0, "ccc@email.com", "https://images-na.ssl-images-amazon.com/images/I/61zT6opNa0L._AC_UX522_.jpg");
         productService.addProduct(p1);
         productService.addProduct(p2);
         productService.addProduct(p3);

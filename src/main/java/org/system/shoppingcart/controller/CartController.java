@@ -104,6 +104,10 @@ public class CartController {
         User user = userService.findOne(email);
         Order newOrder = orderService.saveOrder(order, getCart(session).getId(), user.getEmail());
 
+        Cart newCart = new Cart();
+        user.setCart(newCart);
+        userService.save(user);
+
         return "redirect:/user/orders/" + newOrder.getId();
     }
 

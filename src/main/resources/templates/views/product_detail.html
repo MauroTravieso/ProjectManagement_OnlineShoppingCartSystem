@@ -18,10 +18,13 @@
                 <h5 class="card-title product_title" th:text="${product.title}"></h5>
                 <p class="card-text" th:text="${product.description}"></p>
 
+
+                <a th:class="float-right" th:href="@{/home}"><button class="btn btn-warning"><i class="fa fa-angle-left"></i> Go Back</button>   </a>
+
                 <div class="product_bottom">
                     <h6 class="card-subtitle product_price" th:text="'$'+${product.price}"></h6>
-                    <button type="button"
-                            class="btn btn-primary">ADD TO CART</button>
+
+                    <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/cart/add/{id}(id=${product.id})}"><button type="button" class="btn btn-primary">ADD TO CART</button></a>
                 </div>
 
             </div>

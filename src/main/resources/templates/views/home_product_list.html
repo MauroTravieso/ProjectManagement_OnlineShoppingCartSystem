@@ -37,7 +37,7 @@
                 <h5 class="card-title product_title" th:text="${product.title}"></h5>
                 <div class="product_bottom">
                     <h6 class="card-subtitle product_price" th:text="'$'+${product.price}"></h6>
-                    <a th:href="@{/cart/add/{id}(id=${product.id})}"><button type="button" class="btn btn-primary">ADD TO CART</button></a>
+                    <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/cart/add/{id}(id=${product.id})}"><button type="button" class="btn btn-primary">ADD TO CART</button></a>
 
                 </div>
 

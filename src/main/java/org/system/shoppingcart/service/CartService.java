@@ -8,4 +8,5 @@ public interface CartService {
     void saveCart(Cart cart);
     Cart getById(Long cartId);
     void updateLine(String email, Long lineId, Integer quantity);
+
 }
