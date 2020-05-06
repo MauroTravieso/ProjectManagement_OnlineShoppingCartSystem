@@ -30,4 +30,9 @@ public class Address {
 
     @NotBlank
     private String name;
+
+    @Override
+    public String toString(){
+        return street + ", " + state + ", " + zipCode;
+    }
 }

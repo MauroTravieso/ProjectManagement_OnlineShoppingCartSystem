@@ -15,6 +15,16 @@ import org.system.role.service.RoleService;
 
 import java.util.List;
 
+/**
+ * Application Index Controller.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Mauro Travieso (986965)
+ * @version      1.0
+ *
+ */
+
 @Controller
 public class IndexController {
 

@@ -1,5 +1,15 @@
 package org.system.admin.controller;
 
+/**
+ * Application Profile Controller.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Mauro Travieso (986965)
+ * @version      1.0
+ *
+ */
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

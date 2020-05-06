@@ -15,6 +15,16 @@
             <input type="text" class="form-control" name="keyword" placeholder="Search Product"/>
             <input type="submit" value="Search" class="btn btn-primary"/>
         </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="form-group mb-2">
+            <label class="form-control-label">Product</label>
+            <a th:href="@{'/productReport'}" style="float: right;"><img src="../../image/pdf.png" style="width: 40px;"></a>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="form-group mb-2">
+            <label class="form-control-label">ProductByVendor</label>
+            <a th:href="@{'/productByVendorReport'}" style="float: right;"><img src="../../image/pdf.png" style="width: 40px;"></a>
+        </div>
     </form>
 
     <form action="#" th:action="@{/addProduct}" class="form-inline">
