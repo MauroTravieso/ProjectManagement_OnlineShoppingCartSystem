@@ -6,11 +6,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 /**
- * Application Task Model.
+ * Task Model.
  *
  * Bugs: none known
  *
- * @author       Team II APR2020 - Mauro Travieso (986965)
+ * @author       Team II APR2020 - Jean Octavius (986988)
  * @version      1.0
  *
  */

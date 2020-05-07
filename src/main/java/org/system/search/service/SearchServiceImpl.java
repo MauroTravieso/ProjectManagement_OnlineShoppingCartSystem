@@ -17,6 +17,17 @@ import org.system.search.repository.SearchRepository;
  *
  */
 import java.util.List;
+
+/**
+ * Search Service
+ *
+ * Bugs: none known
+ *
+ * @author       Dinh Nguyen (986520) - Team II APR2020
+ * @version      1.0
+ *
+ */
+
 @Service
 public class SearchServiceImpl implements SearchService{
 
