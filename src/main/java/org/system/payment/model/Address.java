@@ -32,7 +32,7 @@ public class Address {
     @NotBlank
     private String street;
 
-    @Size(min = 2,max=2, message = "{Size.state}")
+    @Size(min = 2,max=10, message = "{Size.state}")
     private String state;
 
     @Size(min=5,max = 5,message = "{Size.zipCode}")
