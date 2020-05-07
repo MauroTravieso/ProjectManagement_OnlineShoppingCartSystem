@@ -92,7 +92,7 @@
                         <i class="fa fa-cc-mastercard" style="color:red;"></i>
                     </div>
                     <label for="cname">Name on Card</label>
-                    <input type="text" th:field="*{payment.name}" id="cname" name="cardname" placeholder="JohnMoreDoe">
+                    <input type="text" th:field="*{payment.name}" id="cname" name="cardname" placeholder="John Doe">
                     <label th:if="${#fields.hasErrors('payment.name')}" th:errors="*{payment.name}" class="text-danger"></label>
                     <label for="ccnum">Credit card number</label>
                     <input type="text" th:field="*{payment.cardNumber}" id="ccnum" name="cardnumber"
