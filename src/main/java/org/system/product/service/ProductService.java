@@ -8,7 +8,13 @@ import org.system.product.repository.ProductRepository;
 import java.util.List;
 
 /**
- * (Duosi Zhang 987000)
+ * Application ProductService.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Duosi Zhang (987000)
+ * @version      1.0
+ *
  */
 @Service
 public class ProductService {

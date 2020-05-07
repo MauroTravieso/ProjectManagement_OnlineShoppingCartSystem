@@ -7,7 +7,13 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
- * (Duosi Zhang 987000)
+ * Application Product Model.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Duosi Zhang (987000)
+ * @version      1.0
+ *
  */
 @Data
 @Entity

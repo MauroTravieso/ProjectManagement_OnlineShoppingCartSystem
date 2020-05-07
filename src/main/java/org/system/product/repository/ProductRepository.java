@@ -9,7 +9,13 @@ import org.system.product.model.Product;
 import java.util.List;
 
 /**
- * (Duosi Zhang 987000)
+ * Application ProductRepository.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Duosi Zhang (987000)
+ * @version      1.0
+ *
  */
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
