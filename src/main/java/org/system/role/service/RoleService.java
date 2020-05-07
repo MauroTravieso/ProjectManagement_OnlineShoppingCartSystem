@@ -7,7 +7,15 @@ import org.system.role.model.Role;
 import org.system.role.repository.RoleRepository;
 
 import java.util.List;
-
+/**
+ *  Service
+ *
+ * Bugs: none known
+ *
+ * @author       Dinh Nguyen (986520) - Team II APR2020
+ * @version      1.0
+ *
+ */
 @Service
 public class RoleService {
 

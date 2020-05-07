@@ -6,7 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.List;
-
+/**
+ * Search Service
+ *
+ * Bugs: none known
+ *
+ * @author       Dinh Nguyen (986520) - Team II APR2020
+ * @version      1.0
+ *
+ */
 @Entity
 public class Role {
 

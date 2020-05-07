@@ -17,6 +17,15 @@ import org.system.search.service.SearchService;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
+/**
+ * SearchService
+ *
+ * Bugs: none known
+ *
+ * @author       Dinh Nguyen (986520) - Team II APR2020
+ * @version      1.0
+ *
+ */
 
 @Controller
 public class SearchController {
