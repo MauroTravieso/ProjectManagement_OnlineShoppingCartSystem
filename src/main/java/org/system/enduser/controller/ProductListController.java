@@ -9,7 +9,15 @@ import org.system.enduser.service.ProductListService;
 import org.system.product.model.Product;
 import org.system.product.service.ProductService;
 
-//Mingyu Zhou(986674)
+/**
+ * Show the Product List and Product detail
+ *
+ * Bugs: none known
+ *
+ * @author       Mingyu Zhou(986674)
+ * @version      1.0
+ * @see also
+ */
 @Controller
 public class ProductListController {
     @Autowired

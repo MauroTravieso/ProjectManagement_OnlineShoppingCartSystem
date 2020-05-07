@@ -76,7 +76,9 @@ public class OnlineShoppingCartSystemApplication implements CommandLineRunner {
         User newAdmin = new User("admin@mail.com", "Admin", "Admin", "0123456789", accountCreatedDate, "admin", rolesAdmin, status, 0.0);
         userService.createAdmin(newAdmin);
 
-		initProductData();
+//		initProductData();
+//        initProductData();
+//        initProductData();
     }
 
     void initProductData() {
