@@ -14,6 +14,16 @@ import org.system.admin.model.UserStatus;
 
 import javax.sql.DataSource;
 
+/**
+ * Application Index Controller.
+ *
+ * Bugs: none known
+ *
+ * @author       Team II APR2020 - Mauro Travieso (986965)
+ * @version      1.0
+ *
+ */
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {

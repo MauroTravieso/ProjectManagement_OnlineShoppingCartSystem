@@ -6,11 +6,11 @@ import org.system.admin.model.User;
 
 import java.util.List;
 /**
- * Application Task Repository.
+ * Task Repository.
  *
  * Bugs: none known
  *
- * @author       Team II APR2020 - Mauro Travieso (986965)
+ * @author       Team II APR2020 - Jean Octavius (986988)
  * @version      1.0
  *
  */

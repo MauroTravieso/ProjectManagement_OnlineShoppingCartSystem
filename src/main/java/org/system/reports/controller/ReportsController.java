@@ -20,7 +20,7 @@ import java.util.List;
  *
  * Bugs: none known
  *
- * @author       Team II APR2020 - Jean Octavius ()
+ * @author       Team II APR2020 - Jean Octavius (986988)
  * @version      1.0
  *
  */
