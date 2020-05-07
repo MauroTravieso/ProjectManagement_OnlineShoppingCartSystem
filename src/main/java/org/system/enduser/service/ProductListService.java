@@ -14,7 +14,15 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.sql.rowset.Predicate;
 
-//Mingyu Zhou(986674)
+/**
+ * Show the Product List and Product detail by pages
+ *
+ * Bugs: none known
+ *
+ * @author       Mingyu Zhou(986674)
+ * @version      1.0
+ * @see also
+ */
 @Service
 public class ProductListService {
     @Autowired
